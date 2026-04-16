@@ -10,30 +10,56 @@
     <title>Visualize | Landing Page</title>
 </head>
 <body>
+    <!-- Container principal da landing page -->
     <main class="landing-page">
-        <header class="hero">
+        <!-- Hero: primeira dobra com marca e mensagem principal -->
+        <header class="hero" id="home">
+            <!-- Barra superior com identidade da marca -->
             <nav class="topbar">
                 <p class="brand">Visualize</p>
-                <button class="ghost-button">Fale conosco</button>
             </nav>
 
+            <!-- Links de navegacao interna -->
+            <nav class="section-nav" aria-label="Navegacao de secoes">
+                <a href="#home">Home</a>
+                <a href="#o-que-fazemos">O que fazemos</a>
+                <a href="#numeros-certificacoes">Numeros e certificacoes</a>
+                <a href="#cases">Cases</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+            <!-- Conteudo principal do hero (chamada e titulo) -->
             <div class="hero-content">
                 <p class="eyebrow">Experiencia que inspira confianca</p>
                 <h1>Design verde para ideias que querem crescer.</h1>
-                <p class="lead">
-
-                </p>
             </div>
         </header>
 
-        <section class="highlights">
-            <article class="card">
-            </article>
-            <article class="card">
-            </article>
-            <article class="card">
-            </article>
+        <!-- Secao de servicos -->
+        <section class="content-section" id="o-que-fazemos">
+            <h2>O que fazemos</h2>
+            <p>Criamos estrategias, design e paginas para fortalecer sua presenca digital.</p>
         </section>
+
+        <!-- Secao de indicadores e certificacoes -->
+        <section class="content-section" id="numeros-certificacoes">
+            <h2>Numeros e certificacoes</h2>
+            <p>Resultados mediveis, processos validados e compromisso com qualidade em cada entrega.</p>
+        </section>
+
+        <!-- Secao de estudos de caso -->
+        <section class="content-section" id="cases">
+            <h2>Cases</h2>
+            <p>Projetos reais com foco em clareza, identidade visual e conversao.</p>
+        </section>
+
+        <!-- Secao final para contato -->
+        <section class="content-section" id="contato">
+            <h2>Contato</h2>
+            <p>Fale com a nossa equipe para iniciar seu proximo projeto.</p>
+        </section>
+
+        
     </main>
 </body>
 <script src = "script.js"></script>
