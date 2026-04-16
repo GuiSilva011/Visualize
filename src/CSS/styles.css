@@ -204,3 +204,25 @@ header {
         justify-content: space-evenly;
     }
 }
+
+#oqueFazemos {
+    padding: 3rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.oqueFazemos-title {
+    font-size: 2.5rem;
+    color: var(--color-neutral-8);
+    text-align: center;
+}
+
+.oqueFazemos-description {
+    color: var(--color-neutral-5);
+    text-align: center;
+    max-width: 480px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
