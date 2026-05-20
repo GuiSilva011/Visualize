@@ -2391,4 +2391,23 @@
   footer {
     padding: 64px 0 28px;
   }
+  .nav-right {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-brand .name {
+    font-size: 12px;
+    letter-spacing: 1.4px;
+  }
+
+  .logo-placeholder {
+    width: 24px;
+    height: 24px;
+  }
+
 }
