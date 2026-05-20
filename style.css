@@ -834,23 +834,25 @@
     top: -4px;
   }
   .membro:hover .membro-img img { transform: scale(1.04); }
- .membro-img::after {
+.membro-img::after {
   content: '';
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 260px;
   background: linear-gradient(
     to top,
     var(--green-dark) 0%,
-    var(--green-dark) 8%,
-    rgba(16, 59, 45, 0.82) 24%,
-    transparent 55%
+    rgba(16, 59, 45, 0.85) 45%,
+    transparent 100%
   );
   pointer-events: none;
   z-index: 1;
 }
 .membro-info {
   padding: 0 30px 32px;
-  margin-top: -52px;
+  margin-top: -38px;
   position: relative;
   z-index: 2;
   background: var(--green-dark);
