@@ -8,12 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
+
 <nav>
   <div class="nav-inner">
     <a href="#inicio" class="nav-brand">
@@ -517,7 +517,7 @@
     </div>
 
     <div class="contato-grid reveal">
-      <form class="contato-form" onsubmit="event.preventDefault(); enviarFormularioWhatsapp(this); return false;">
+      <form id="form-contato" class="contato-form" action="https://formspree.io/f/mdajawjo" method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>Nome</label>
@@ -530,7 +530,7 @@
         </div>
         <div class="form-field">
           <label>Telefone</label>
-          <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+          <input type="tel" name="telefone" placeholder="(00) 00000-0000" minlength="14" maxlength="15" required>
         </div>
         <div class="form-field">
           <label>E-mail</label>
@@ -546,7 +546,7 @@
         </button>
         <p class="form-note">
           <i class="ti ti-info-circle"></i>
-          Ao clicar em enviar, você será redirecionado para o WhatsApp com sua mensagem preenchida. <strong class="ph">[Dev: configurar envio via Formspree/EmailJS para envio direto por e-mail]</strong>
+          Ao clicar em enviar, você será redirecionado para o WhatsApp com sua mensagem preenchida.
         </p>
       </form>
 
