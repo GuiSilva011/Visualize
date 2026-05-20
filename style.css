@@ -1994,6 +1994,7 @@
 
   .number-cell {
     border: 1px solid var(--ink-15);
+    cursor: default;
   }
 
   /* Certificações */
