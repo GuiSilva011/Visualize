@@ -855,16 +855,8 @@
   z-index: 2;
   background: var(--green-dark);
 }
-.membro-info::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -3px;
-  height: 6px;
-  background: var(--green-dark);
-  z-index: -1;
-}
+
+
   .membro-role {
     display: inline-block;
     font-size: 11px;
