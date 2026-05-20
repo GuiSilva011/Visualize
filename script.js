@@ -137,3 +137,27 @@ if (formContato) {
     }
   });
 }
+const inputTelefone = document.querySelector('input[name="telefone"]');
+
+if (inputTelefone) {
+  inputTelefone.addEventListener('input', function (e) {
+  
+    let valor = e.target.value.replace(/\D/g, '');
+    
+
+    if (valor.length > 11) {
+      valor = valor.slice(0, 11);
+    }
+
+  
+    if (valor.length > 2) {
+      valor = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
+    }
+    if (valor.length > 9) {
+      valor = `${valor.slice(0, 10)}-${valor.slice(10)}`;
+    }
+
+  
+    e.target.value = valor;
+  });
+}
