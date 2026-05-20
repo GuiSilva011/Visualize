@@ -38,9 +38,7 @@
   .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
   .wrap-narrow { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
 
-  /* ====================================================================
-     LOGO PLACEHOLDER — marca neutra até receber a logo oficial
-     ==================================================================== */
+
   .logo-placeholder {
     display: inline-block;
     width: 26px; height: 26px;
@@ -58,7 +56,7 @@
     border-radius: 50%;
     background: var(--green-deep);
   }
-  /* Manter o style antigo do logo-symbol também (será reutilizado quando vier o SVG oficial) */
+
   .logo-symbol {
     display: inline-block;
     width: 28px; height: 28px;
@@ -66,9 +64,7 @@
   }
   .logo-symbol svg { width: 100%; height: 100%; display: block; }
 
-  /* ====================================================================
-     NAVIGATION — 3 zonas (logo / centro / direita com redes)
-     ==================================================================== */
+
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
@@ -159,9 +155,7 @@
     background: none; color: var(--cream); font-size: 24px;
   }
 
-  /* ====================================================================
-     HERO — tipografia massiva, símbolo V translúcido no fundo
-     ==================================================================== */
+
   .hero {
     position: relative;
     min-height: auto;
@@ -169,7 +163,7 @@
     background: var(--green-deep);
     overflow: hidden;
   }
-  /* símbolo V gigante de fundo, em outline */
+
   .hero-bg-symbol {
     position: absolute;
     top: 8%; right: -8%;
@@ -349,9 +343,7 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ====================================================================
-     MARQUEE (logos de clientes / serviços)
-     ==================================================================== */
+
   .marquee-strip {
     background: var(--black);
     border-top: 1px solid var(--ink-8);
@@ -386,9 +378,6 @@
   }
   @keyframes marquee { to { transform: translateX(-50%); } }
 
-  /* ====================================================================
-     SECTION HEADERS
-     ==================================================================== */
   .section { padding: 130px 0; position: relative; }
   .section-tag {
     display: inline-flex; align-items: center; gap: 10px;
@@ -437,9 +426,7 @@
   }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
-  /* ====================================================================
-     SERVIÇOS — estilo Resultate: lista grande, focada
-     ==================================================================== */
+
   .services {
     background: var(--black);
     cursor: default;
@@ -502,9 +489,7 @@
     cursor: default;
   }
 
-  /* ====================================================================
-     TAGLINE — seção dedicada à frase oficial da marca
-     ==================================================================== */
+
   .tagline-section {
     background: var(--green-dark);
     position: relative;
@@ -568,9 +553,7 @@
     line-height: 1.65;
   }
 
-  /* ====================================================================
-     COMO FUNCIONA — passos verticais estilo timeline
-     ==================================================================== */
+
   .processo { background: var(--green-deep); }
   .processo-grid {
     display: grid;
@@ -611,9 +594,7 @@
   }
   .processo-left .section-title { margin-bottom: 30px; }
 
-  /* ====================================================================
-     NÚMEROS — bloco preto com tipografia gigantesca
-     ==================================================================== */
+
   .numbers { background: var(--black); padding: 130px 0; }
   .numbers-head { text-align: center; margin-bottom: 70px; }
   .numbers-head .section-tag { justify-content: center; }
@@ -660,7 +641,7 @@
   }
   .number-ph { color: var(--green-accent); opacity: 0.55; }
 
-  /* Intro abaixo do título da seção Números — storytelling */
+
   .numbers-intro {
     margin: 24px auto 0;
     max-width: 56ch;
@@ -715,9 +696,7 @@
     50% { transform: translateY(6px); opacity: 1; }
   }
 
-  /* ====================================================================
-     PORTFÓLIO / CASES — cards com print real
-     ==================================================================== */
+
   .cases { background: var(--green-deep); }
   .cases-grid {
     display: grid;
@@ -804,9 +783,7 @@
     letter-spacing: 1.2px;
   }
 
-  /* ====================================================================
-     EQUIPE — duas grandes apresentações
-     ==================================================================== */
+
   .equipe { background: var(--black); padding: 140px 0; }
   .equipe-grid {
     display: grid;
@@ -911,9 +888,7 @@
     color: var(--ink-70);
   }
 
-  /* ====================================================================
-     DEPOIMENTOS — slider de cards grandes
-     ==================================================================== */
+
   .depoimentos { background: var(--green-deep); }
   .depo-grid {
     display: grid;
@@ -969,9 +944,6 @@
     color: var(--ink-50);
   }
 
-  /* ====================================================================
-     CTA FINAL — verde escuro com tipografia massiva
-     ==================================================================== */
   .cta-final {
     background: var(--green-dark);
     position: relative;
@@ -1023,9 +995,7 @@
     padding: 19px 36px;
   }
 
-  /* ====================================================================
-     FOOTER
-     ==================================================================== */
+
   footer {
     background: var(--black);
     padding: 80px 0 32px;
@@ -1093,11 +1063,7 @@
     margin-top: 6px;
   }
 
-  /* ====================================================================
-     PAINEL LATERAL DE CONTATOS (estilo Resultate)
-     ==================================================================== */
 
-  /* Botão flutuante que abre o painel */
   .contact-float {
     position: fixed;
     bottom: 28px; right: 28px;
@@ -1131,7 +1097,7 @@
     100% { box-shadow: 0 12px 32px rgba(0,0,0,0.45), 0 0 0 0 rgba(127,163,129,0); }
   }
 
-  /* Overlay de fundo */
+
   .contact-overlay {
     position: fixed;
     inset: 0;
@@ -1355,7 +1321,6 @@
     margin-top: 2px;
   }
 
-  /* Redes sociais no rodapé do painel */
   .cp-socials {
     display: flex; gap: 10px;
     padding-top: 8px;
@@ -1377,7 +1342,6 @@
     transform: translateY(-2px);
   }
 
-  /* Responsivo do painel */
   @media (max-width: 768px) {
     .contact-float {
       bottom: 20px; right: 20px;
@@ -1394,7 +1358,6 @@
     .cp-body { padding: 22px 22px 28px; gap: 24px; }
   }
 
-  /* placeholders pra completar */
   .ph {
     background: rgba(201, 154, 74, 0.18);
     color: #E0B27D;
@@ -1404,9 +1367,7 @@
     font-size: 0.92em;
   }
 
-  /* ====================================================================
-     CERTIFICAÇÕES — cards com logos + áreas
-     ==================================================================== */
+
   .certificacoes { background: var(--black); }
   .cert-grid {
     display: grid;
@@ -1511,9 +1472,7 @@
     transform: translateY(-2px);
   }
 
-  /* ====================================================================
-     REDES SOCIAIS — 2 cards grandes
-     ==================================================================== */
+
   .redes { background: var(--green-deep); }
   .redes-grid {
     display: grid;
@@ -1566,9 +1525,7 @@
     transform: rotate(-45deg);
   }
 
-  /* ====================================================================
-     TRABALHE CONOSCO
-     ==================================================================== */
+
   .carreiras { background: var(--black); }
   .carreiras-inner {
     display: grid;
@@ -1612,9 +1569,7 @@
     font-style: italic;
   }
 
-  /* ====================================================================
-     FALE CONOSCO — formulário filtrado + info de contato
-     ==================================================================== */
+
   .fale-conosco { background: var(--green-dark); padding: 130px 0; }
   .fale-conosco .section-title { color: var(--cream); }
   .contato-grid {
@@ -1744,9 +1699,7 @@
   .contato-info-cta:hover { transform: translateY(-2px); background: #1FB855; }
   .contato-info-cta i { font-size: 22px; }
 
-  /* ====================================================================
-     RESPONSIVE
-     ==================================================================== */
+
   @media (max-width: 1024px) {
     .processo-grid { grid-template-columns: 1fr; gap: 50px; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }

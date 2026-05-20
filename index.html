@@ -517,7 +517,7 @@
     </div>
 
     <div class="contato-grid reveal">
-      <form class="contato-form" onsubmit="event.preventDefault(); enviarFormularioWhatsapp(this); return false;">
+      <form id="form-contato" class="contato-form" action="https://formspree.io/f/mojbjkdr" method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>Nome</label>
@@ -546,7 +546,7 @@
         </button>
         <p class="form-note">
           <i class="ti ti-info-circle"></i>
-          Ao clicar em enviar, você será redirecionado para o WhatsApp com sua mensagem preenchida. <strong class="ph">[Dev: configurar envio via Formspree/EmailJS para envio direto por e-mail]</strong>
+          Ao clicar em enviar, você será redirecionado para o WhatsApp com sua mensagem preenchida.
         </p>
       </form>
 
