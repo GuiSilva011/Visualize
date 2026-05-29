@@ -47,8 +47,6 @@
   // }
 
 
-  // PAINEL LATERAL DE CONTATOS
-
   const painelContato = document.getElementById('contact-panel');
   const overlayContato = document.getElementById('contact-overlay');
 
@@ -56,7 +54,7 @@
     painelContato.classList.add('open');
     overlayContato.classList.add('open');
     document.body.style.overflow = 'hidden';
-    // foca no primeiro campo após a animação
+
     setTimeout(() => {
       const nomeInput = document.getElementById('cp-nome');
       if (nomeInput) nomeInput.focus();
@@ -97,7 +95,6 @@ const formContato = document.getElementById("form-contato");
 
 if (formContato) {
   formContato.addEventListener("submit", async function (event) {
-    // ISSO AQUI É O QUE IMPEDE O REDIRECIONAMENTO DA PÁGINA
     event.preventDefault(); 
 
     const btnSubmit = formContato.querySelector('.form-submit');
@@ -160,4 +157,57 @@ if (inputTelefone) {
   
     e.target.value = valor;
   });
+}
+
+function calcularTotal() {
+  const planos = document.getElementsByName('tipo_site');
+  let baseValor = 0;
+  let planoSelecionado = '';
+
+  for (let i = 0; i < planos.length; i++) {
+    if (planos[i].checked) {
+      baseValor = parseFloat(planos[i].value);
+      planoSelecionado = planos[i].id;
+      break;
+    }
+  }
+  
+  if (!document.getElementById('opcionais-landing')) return;
+
+  document.getElementById('opcionais-landing').classList.remove('ativo');
+  document.getElementById('opcionais-website').classList.remove('ativo');
+  document.getElementById('opcionais-ecommerce').classList.remove('ativo');
+
+  let containerAtivo = null;
+
+  if (planoSelecionado === 'plano-landing') {
+    containerAtivo = document.getElementById('opcionais-landing');
+  } else if (planoSelecionado === 'plano-website') {
+    containerAtivo = document.getElementById('opcionais-website');
+  } else if (planoSelecionado === 'plano-ecommerce') {
+    containerAtivo = document.getElementById('opcionais-ecommerce');
+  }
+
+  if (containerAtivo) {
+    containerAtivo.classList.add('ativo');
+  }
+
+  let opcionaisValor = 0;
+  if (containerAtivo) {
+    const opcionaisSelecionados = containerAtivo.querySelectorAll('.opcional-item:checked');
+    opcionaisSelecionados.forEach(item => {
+      opcionaisValor += parseFloat(item.value);
+    });
+  }
+
+  const total = baseValor + opcionaisValor;
+  const valorTotalElement = document.getElementById('valor-total');
+  
+  if (valorTotalElement) {
+    if (total > 0) {
+      valorTotalElement.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    } else {
+      valorTotalElement.innerText = 'R$ 0,00';
+    }
+  }
 }
