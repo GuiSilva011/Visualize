@@ -3,742 +3,458 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VZ Connect — Comunicação com propósito. Resultado de verdade.</title>
-<meta name="description" content="VZ Connect — agência de comunicação estratégica. Conteúdo com propósito, identidade e o DNA do seu negócio.">
+<title>VZ CONNECT — Comunicação com propósito. Resultado de verdade.</title>
+<meta name="description" content="VZ CONNECT — agência de comunicação estratégica em Vila Velha, ES. Tratamos sua marca como um ativo: estratégia, criação, captação e gestão integradas.">
+<meta property="og:title" content="VZ CONNECT — Comunicação com propósito. Resultado de verdade.">
+<meta property="og:description" content="Estratégia antes de execução. Identidade antes de tendência. Marca antes de número de seguidores.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vzconnect.com.br">
+<link rel="icon" type="image/svg+xml" href="img/vz-symbol.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- símbolo SVG reutilizável via <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="vzsym" viewBox="0 0 1123 652"><g transform="translate(0,652) scale(0.1,-0.1)" fill="currentColor"><path d="M7040 6477 c0 -2 141 -131 314 -287 173 -157 315 -287 315 -290 -1 -3 -29 -30 -63 -60 -34 -30 -779 -707 -1656 -1505 -877 -797 -1646 -1497 -1709 -1554 -64 -58 -339 -308 -611 -556 -272 -248 -747 -680 -1055 -960 l-560 -509 -3 1505 -2 1506 -329 149 -329 149 1082 3 1081 2 421 383 c231 210 468 425 525 477 57 52 295 268 528 480 l423 385 -1922 3 -1921 2 -765 -695 -764 -696 0 -2189 0 -2190 2055 0 2054 0 173 158 c96 86 396 360 668 607 272 248 621 565 775 705 272 246 3230 2937 4365 3970 305 277 671 610 813 739 141 128 257 237 257 240 0 31 -26 31 -2092 31 -1137 0 -2068 -1 -2068 -3z"/></g></symbol>
+</svg>
 
-<nav>
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <svg class="l-sym" viewBox="0 0 1123 652"><use href="#vzsym"/></svg>
+  <div class="l-bar" id="l-bar"></div>
+</div>
+
+
+<!-- NAV -->
+<nav id="nav">
   <div class="nav-inner">
-    <a href="#inicio" class="nav-brand">
-      <span class = "nav-logo-box">
-         <img 
-            class="logo-img-nav" 
-            src="src/images/FUNDO_TRANSPARENTE.png" 
-            alt="VZ Connect"
-          >
-      </span>
+    <a href="#top" class="nav-brand" data-cursor>
+      <svg class="sym" viewBox="0 0 1123 652"><use href="#vzsym"/></svg>
       <span class="name">VZ CONNECT</span>
     </a>
-    <div class="nav-center" id="nav-links">
-      <a href="#servicos">Serviços</a>
-      <a href="#cases">Cases</a>
-      <a href="#certificacoes">Certificações</a>
-      <a href="#equipe">Quem somos</a>
-      <a href="orcamento.html">Criação de Site</a>
+    <div class="nav-center">
+      <a href="#servicos" data-cursor>Serviços</a>
+      <a href="#cases" data-cursor>Cases</a>
+      <a href="#equipe" data-cursor>Quem somos</a>
+      <a href="#certificacoes" data-cursor>Certificações</a>
     </div>
-    <div class="nav-right">
-      <a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Encontrei%20a%20VZ%20Connect%20pelo%20site." target="_blank" class="nav-social nav-social-wpp" title="WhatsApp (27) 99843-1267" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
-      <a href="https://instagram.com/" target="_blank" class="nav-social" title="Instagram — @ será atualizado em breve" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-      <a href="https://linkedin.com/" target="_blank" class="nav-social" title="LinkedIn — em breve" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
-      <a href="#" class="nav-cta" onclick="event.preventDefault(); abrirPainelContato();">Fale conosco <i class="ti ti-arrow-right"></i></a>
-    </div>
-    <button class="nav-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')">
-      <i class="ti ti-menu-2"></i>
+    <a href="#contato" class="nav-cta" data-cursor>
+      <span>Fale conosco</span>
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="26" height="26"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
     </button>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<!-- ============ HERO ============ -->
-<section class="hero" id="inicio">
-  <div class="hero-bg-symbol">
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="44" stroke="#1D1D1B" stroke-width="0.3"/>
-      <circle cx="50" cy="50" r="32" stroke="#1D1D1B" stroke-width="0.3"/>
-      <circle cx="50" cy="50" r="20" stroke="#1D1D1B" stroke-width="0.3"/>
-    </svg>
-  </div>
-
-  <div class="wrap hero-inner">
-
-    <div class="hero-brand-row">
-      <div class="hero-wordmark">
-        <img 
-          src="src/images/FUNDO_TRANSPARENTE.png"
-          alt="Símbolo VZ Connect" 
-          class="hero-logo-symbol"
-        >
-        <span class="hero-brand-letters">
-        <span>V</span>
-        <span>Z</span>
-        <span class="brand-space"></span>
-        <span>C</span>
-        <span>O</span>
-        <span>N</span>
-        <span>N</span>
-        <span>E</span>
-        <span>C</span>
-        <span>T</span>
-  </span>
-      </div>
-
-      <div class="hero-eyebrow">
-        <span class="pulse"></span>
-        <span>Comunicação estratégica · Espírito Santo, Brasil</span>
-      </div>
-    </div>
-
-    <h1 class="hero-title">
-      <span class="line">Sua marca</span>
-      <span class="line">merece <em>direção,</em></span>
-      <span class="line">não <span class="accent">improviso.</span></span>
-    </h1>
-
-    <p class="hero-sub">
-      Somos uma agência de comunicação estratégica que cuida da sua presença digital com método:
-      planejamento, criação, captação e gestão integrados — tratando sua marca como um ativo,
-      não como um mural de posts soltos.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#contato" class="btn-primary">
-        <i class="ti ti-brand-whatsapp" style="font-size:18px"></i>
-        Iniciar conversa
-      </a>
-
-      <a href="#cases" class="btn-ghost">
-        Ver nosso trabalho
-        <i class="ti ti-arrow-down" style="font-size:16px"></i>
-      </a>
-    </div>
-
-    <div class="hero-meta">
-      <div class="hero-meta-inner">
-        <div class="hero-meta-block">
-          <div class="lbl">Localização</div>
-          <div class="val">Espírito Santo · Brasil</div>
-        </div>
-
-        <div class="hero-meta-block">
-          <div class="lbl">Foco</div>
-          <div class="val">Personal branding · Marcas em crescimento</div>
-        </div>
-
-        <div class="hero-meta-block">
-          <div class="lbl">Atuação</div>
-          <div class="val">Direito · Turismo · Cerimonial · e mais</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ============ MARQUEE ============ -->
-<div class="marquee-strip">
-  <div class="marquee-track">
-    <span>Estratégia de marca</span>
-    <span>Social media</span>
-    <span>Captação profissional</span>
-    <span>Copywriting</span>
-    <span>Gestão de redes</span>
-    <span>Desenvolvimento de sites</span>
-    <span>Relatórios mensais</span>
-    <span>Estratégia de marca</span>
-    <span>Social media</span>
-    <span>Captação profissional</span>
-    <span>Copywriting</span>
-    <span>Gestão de redes</span>
-    <span>Desenvolvimento de sites</span>
-    <span>Relatórios mensais</span>
+<!-- MENU MOBILE -->
+<div class="menu-overlay" id="menu">
+  <a href="#servicos">Serviços</a>
+  <a href="#cases">Cases</a>
+  <a href="#equipe">Quem somos</a>
+  <a href="#certificacoes">Certificações</a>
+  <a href="#contato">Fale conosco</a>
+  <div class="menu-foot">
+    <span>(27) 99843-1267</span>
+    <span>Vila Velha · ES</span>
   </div>
 </div>
 
-<!-- ============ SERVIÇOS ============ -->
-<section class="section services" id="servicos">
-  <div class="wrap">
-    <div class="section-head split reveal">
-      <div>
-        <div class="section-tag">O que entregamos</div>
-        <h2 class="section-title">Mais do que <em>posts.</em> Um sistema de comunicação.</h2>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-noise-grid"></div>
+
+  <div class="wrap hero-inner reveal">
+    <div class="hero-left">
+      <span class="badge fx"><span class="pulse"></span> Agência de comunicação estratégica <span class="ln"></span> Vila Velha · ES</span>
+      <h1 class="hero-title">
+        <span class="line-mask"><span>Sua marca merece</span></span>
+        <span class="line-mask"><span class="rotor-wrap"><span class="rotor" id="rotor">direção</span></span></span>
+        <span class="line-mask"><span>não <span class="g">improviso.</span></span></span>
+      </h1>
+      <p class="sub fx d3">Cuidamos da sua presença digital com método — <strong>estratégia, criação, captação e gestão integradas.</strong> Sua marca tratada como um ativo, não como um mural de posts soltos.</p>
+      <div class="hero-actions fx d4">
+        <a href="#contato" class="btn btn-primary" data-cursor><span>Iniciar conversa</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="#cases" class="btn btn-ghost" data-cursor><span>Ver nosso trabalho</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <p class="section-intro">
-        Cada serviço foi desenhado para resolver um nó real de quem está construindo marca. Não trabalhamos por volume, trabalhamos por narrativa.
-      </p>
+      <div class="hero-stats fx d5">
+        <div class="hs"><div class="hs-n">+50M</div><div class="hs-l">Visualizações geradas</div></div>
+        <div class="hs-div"></div>
+        <div class="hs"><div class="hs-n">+100</div><div class="hs-l">Marcas atendidas</div></div>
+        <div class="hs-div"></div>
+        <div class="hs"><div class="hs-n">+40</div><div class="hs-l">Nichos de mercado</div></div>
+      </div>
     </div>
 
-    <div class="services-list reveal">
-      <div class="service-row">
-        <div class="service-num">/ 01</div>
-        <div class="service-name">Estratégia de marca</div>
-        <div class="service-desc">Imersão no seu negócio, definição de posicionamento, personas, pilares de conteúdo e calendário editorial mensal. A base que sustenta tudo.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-      <div class="service-row">
-        <div class="service-num">/ 02</div>
-        <div class="service-name">Captação & criação</div>
-        <div class="service-desc">Dias de captação profissional com direção, roteiros pensados para o algoritmo e a sua voz, e edição que respeita seu tempo e o do espectador.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-      <div class="service-row">
-        <div class="service-num">/ 03</div>
-        <div class="service-name">Copywriting com voz</div>
-        <div class="service-desc">Legendas, chamadas e CTAs escritos por humanos. Foco em engajamento, conexão e conversão — sem cara de robô ou texto genérico.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-      <div class="service-row">
-        <div class="service-num">/ 04</div>
-        <div class="service-name">Gestão das redes</div>
-        <div class="service-desc">Agendamento, publicação, monitoramento de comentários e DMs, atendimento inicial e cuidado com a saúde do perfil semana a semana.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-      <div class="service-row">
-        <div class="service-num">/ 05</div>
-        <div class="service-name">Relatórios de performance</div>
-        <div class="service-desc">Métricas das principais redes, análise de crescimento, dos conteúdos que ressoaram e recomendações claras pro próximo ciclo. Você sempre sabe onde está.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-      <div class="service-row">
-        <div class="service-num">/ 06</div>
-        <div class="service-name">Acompanhamento próximo</div>
-        <div class="service-desc">Reuniões mensais de alinhamento e um canal direto de comunicação. Você nunca fica no escuro sobre a sua marca — falar com a gente é fácil.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-      <div class="service-row">
-        <div class="service-num">/ 07</div>
-        <div class="service-name">Desenvolvimento de sites<span class="service-badge">Novo</span></div>
-        <div class="service-desc">Sites institucionais e landing pages projetados pra conversão. Da estratégia ao código, com identidade visual coerente e performance pensada pra o seu público.</div>
-        <i class="ti ti-arrow-up-right service-arrow"></i>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRABALHE CONOSCO ============ -->
-<section class="section carreiras" id="carreiras">
-  <div class="wrap carreiras-inner">
-    <div class="reveal">
-      <div class="section-tag">Faça parte</div>
-      <h2 class="section-title">Quer construir <em>com a gente?</em></h2>
-      <p class="section-intro" style="margin-bottom:32px;">
-        Estamos sempre de olho em profissionais que pensam comunicação como sistema, não como tarefa solta. Mande seu currículo e a gente conversa.
-      </p>
-      <div class="carreiras-actions">
-        <a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Quero%20enviar%20meu%20curr%C3%ADculo%20para%20a%20VZ%20Connect." target="_blank" class="btn-primary">
-          <i class="ti ti-brand-whatsapp" style="font-size:18px"></i>
-          Enviar currículo via WhatsApp
-        </a>
-        <a href="mailto:contato@vzconnect.com.br?subject=Envio%20de%20currículo" class="btn-ghost">
-          <i class="ti ti-mail" style="font-size:16px"></i>
-          Enviar por e-mail
-        </a>
-      </div>
-    </div>
-    <div class="carreiras-art reveal">
-      <div class="carreiras-art-inner">
-        <i class="ti ti-users-group"></i>
-        <div class="carreiras-art-text">
-          Profissionais multidisciplinares fazem comunicação que importa.
+    <div class="hero-right fx d3">
+      <div class="hero-card">
+        <div class="hc-sym" data-parallax="0.06"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></div>
+        <div class="hc-glow"></div>
+        <div class="hc-top">
+          <span class="hc-tag"><span class="hc-dot"></span> Como a gente trabalha</span>
+          <span class="hc-handle">Método VZ</span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CERTIFICAÇÕES ============ -->
-<section class="section certificacoes" id="certificacoes">
-  <div class="wrap">
-    <div class="section-head split reveal">
-      <div>
-        <div class="section-tag">Conhecimento aplicado</div>
-        <h2 class="section-title">Nossas <em>certificações</em> e formação.</h2>
-      </div>
-      <p class="section-intro">
-        Nos formamos onde os melhores formam — em escolas reconhecidas de marketing digital, social media e tráfego pago. O conteúdo que produzimos passa por esse filtro técnico.
-      </p>
-    </div>
-
-    <div class="cert-grid cert-grid-2 reveal">
-      <div class="cert-card">
-        <div class="cert-logo-box">
-          <img src="img/logo-organick.png" alt="Logo Organick" class="cert-logo-img" />
-        </div>
-        <div class="cert-info">
-          <div class="cert-issuer">Organick</div>
-          <div class="cert-course-list">
-            <span class="cert-course-item"><i class="ti ti-check"></i> Curso de Social Media</span>
-            <span class="cert-course-item"><i class="ti ti-check"></i> Curso de Iluminação</span>
-            <span class="cert-course-item"><i class="ti ti-check"></i> Curso de Edição de Vídeo</span>
-            <span class="cert-course-item"><i class="ti ti-check"></i> Tráfego Pago — Meta Ads</span>
+        <div class="hc-flow">
+          <div class="hc-step">
+            <div class="hc-step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div class="hc-step-tx"><div class="hc-step-t">Estratégia</div><div class="hc-step-d">Posicionamento e plano editorial</div></div>
+            <div class="hc-step-n">01</div>
+          </div>
+          <div class="hc-line"></div>
+          <div class="hc-step">
+            <div class="hc-step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.5-2.5v9L15 14M4 7h11v10H4z"/></svg></div>
+            <div class="hc-step-tx"><div class="hc-step-t">Captação &amp; conteúdo</div><div class="hc-step-d">Gravação, edição e copy com voz</div></div>
+            <div class="hc-step-n">02</div>
+          </div>
+          <div class="hc-line"></div>
+          <div class="hc-step">
+            <div class="hc-step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div>
+            <div class="hc-step-tx"><div class="hc-step-t">Gestão &amp; resultado</div><div class="hc-step-d">Publicação, análise e crescimento</div></div>
+            <div class="hc-step-n">03</div>
           </div>
         </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-logo-box">
-          <img src="img/logo-internet-academy.png" alt="Logo Internet Academy" class="cert-logo-img" />
-        </div>
-        <div class="cert-info">
-          <div class="cert-issuer">Internet Academy</div>
-          <div class="cert-course-list">
-            <span class="cert-course-item"><i class="ti ti-check"></i> Formação em Social Media</span>
-            <span class="cert-course-item"><i class="ti ti-check"></i> Tráfego Pago — Meta Ads</span>
+        <div class="hc-foot">
+          <div class="hc-foot-single">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>Um sistema completo, do briefing ao resultado</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============ NÚMEROS ============ -->
-<section class="section numbers">
+  <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <!-- preenchido via JS para loop perfeito -->
+  </div>
+</div>
+
+<!-- INTRO / MANIFESTO CURTO -->
+<section class="section bg-black intro reveal">
   <div class="wrap">
-    <div class="numbers-head reveal">
-      <div class="section-tag">Resultado em escala</div>
-      <h2 class="section-title">Números que <em>contam</em> uma história.</h2>
-      <p class="numbers-intro">
-        Cada métrica abaixo representa marcas reais que confiaram na nossa direção e viram o que comunicação estratégica pode entregar quando bem executada.
+    <div class="intro-grid">
+      <p class="intro-text">
+        <span class="word"><span>Não</span></span>
+        <span class="word"><span>fazemos</span></span>
+        <span class="word"><span class="dim">marketing</span></span>
+        <span class="word"><span class="dim">de</span></span>
+        <span class="word"><span class="dim">número.</span></span>
+        <span class="word"><span>Fazemos</span></span>
+        <span class="word"><span class="g">marketing</span></span>
+        <span class="word"><span class="g">de</span></span>
+        <span class="word"><span class="g">gente.</span></span>
       </p>
-    </div>
-    <div class="numbers-grid reveal">
-      <div class="number-cell">
-        <div class="number-value"><span class="plus">+</span>50<span class="unit">M</span></div>
-        <div class="number-label">Visualizações geradas para clientes</div>
+      <div class="intro-meta">
+        <div class="item fx d2"><div class="k">Estratégia primeiro</div><div class="v">Antes de postar, a gente entende, planeja e direciona.</div></div>
+        <div class="item fx d3"><div class="k">Conteúdo com voz</div><div class="v">Nada genérico. Cada peça com a identidade da sua marca.</div></div>
+        <div class="item fx d4"><div class="k">Proximidade real</div><div class="v">Acompanhamento de perto, do briefing ao resultado.</div></div>
       </div>
-      <div class="number-cell">
-        <div class="number-value"><span class="plus">+</span>100</div>
-        <div class="number-label">Marcas atendidas no Brasil</div>
-      </div>
-      <div class="number-cell">
-        <div class="number-value"><span class="plus">+</span>5<span class="unit">mil</span></div>
-        <div class="number-label">Vídeos produzidos e publicados</div>
-      </div>
-      <div class="number-cell">
-        <div class="number-value">40</div>
-        <div class="number-label">Nichos atendidos com excelência</div>
-      </div>
-    </div>
-    <div class="numbers-bridge reveal">
-      <div class="bridge-line"></div>
-      <p class="bridge-text">
-        Por trás de cada número, <strong>uma marca que confiou em nós</strong>. Conheça alguns dos perfis:
-      </p>
-      <i class="ti ti-arrow-down bridge-arrow"></i>
     </div>
   </div>
 </section>
 
-<!-- ============ CASES ============ -->
-<section class="section cases" id="cases">
+<!-- SERVIÇOS -->
+<section class="section bg-black" id="servicos">
   <div class="wrap">
-    <div class="section-head split reveal">
-      <div>
-        <div class="section-tag">Cases reais</div>
-        <h2 class="section-title">Marcas que <em>confiaram</em> — e cresceram com a gente.</h2>
-      </div>
-      <p class="section-intro">
-        Estes são alguns dos perfis que a VZ Connect produz, gerencia e direciona estrategicamente. Resultados reais, com nome, rosto e número público de seguidores.
-      </p>
+    <div class="svc-head reveal">
+      <h2 class="s-title">
+        <span class="line-mask"><span>Um sistema de</span></span>
+        <span class="line-mask"><span>comunicação. <em>Não</em></span></span>
+        <span class="line-mask"><span>postagens soltas.</span></span>
+      </h2>
+      <p class="lead fx d2">Cada serviço resolve um nó real de quem está construindo marca. Não trabalhamos por volume — trabalhamos por narrativa.</p>
     </div>
-
-    <div class="cases-grid reveal">
-      <a href="https://www.instagram.com/gabrielzanette/" target="_blank" class="case-card">
-        <div class="case-screenshot"><img src="img/case-gabrielzanette.jpg" alt="Perfil @gabrielzanette no Instagram" /></div>
-        <div class="case-meta">
-          <div class="case-cat">Viagem · Dinheiro · Direitos</div>
-          <div class="case-name">Gabriel Zanette</div>
-          <div class="case-handle">@gabrielzanette</div>
-          <div class="case-stats">
-            <div class="case-stat"><div class="v">877 mil</div><div class="l">Seguidores</div></div>
-            <div class="case-stat"><div class="v">1.477</div><div class="l">Publicações</div></div>
-            <div class="case-stat"><div class="v">Verificado</div><div class="l">Selo oficial</div></div>
-          </div>
-        </div>
+    <div class="svc-list reveal">
+      <a class="svc-item" data-cursor>
+        <span class="svc-num">01</span>
+        <span class="svc-name">Estratégia de marca</span>
+        <span class="svc-desc">Posicionamento, personas, pilares de conteúdo e calendário editorial. A base que sustenta tudo.</span>
+        <svg class="svc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
-
-      <a href="https://www.instagram.com/dra.julianacferrari/" target="_blank" class="case-card">
-        <div class="case-screenshot"><img src="img/case-juliana-ferrari.jpg" alt="Perfil @dra.julianacferrari no Instagram" /></div>
-        <div class="case-meta">
-          <div class="case-cat">Direito do Consumidor</div>
-          <div class="case-name">Dra. Juliana C. Ferrari</div>
-          <div class="case-handle">@dra.julianacferrari</div>
-          <div class="case-stats">
-            <div class="case-stat"><div class="v">32,9 mil</div><div class="l">Seguidores</div></div>
-            <div class="case-stat"><div class="v">1.489</div><div class="l">Publicações</div></div>
-            <div class="case-stat"><div class="v">Verificado</div><div class="l">Selo oficial</div></div>
-          </div>
-        </div>
+      <a class="svc-item" data-cursor>
+        <span class="svc-num">02</span>
+        <span class="svc-name">Captação &amp; criação</span>
+        <span class="svc-desc">Captação profissional com direção, roteiros pensados pro algoritmo e edição que respeita o espectador.</span>
+        <svg class="svc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
-
-      <a href="https://www.instagram.com/flynitaviagens/" target="_blank" class="case-card">
-        <div class="case-screenshot"><img src="img/case-flynita-viagens.jpg" alt="Perfil @flynitaviagens no Instagram" /></div>
-        <div class="case-meta">
-          <div class="case-cat">Turismo Europeu</div>
-          <div class="case-name">Flynita Viagens</div>
-          <div class="case-handle">@flynitaviagens</div>
-          <div class="case-stats">
-            <div class="case-stat"><div class="v">5.379</div><div class="l">Seguidores</div></div>
-            <div class="case-stat"><div class="v">165</div><div class="l">Publicações</div></div>
-            <div class="case-stat"><div class="v">Verificado</div><div class="l">Selo oficial</div></div>
-          </div>
-        </div>
+      <a class="svc-item" data-cursor>
+        <span class="svc-num">03</span>
+        <span class="svc-name">Copywriting com voz</span>
+        <span class="svc-desc">Legendas, chamadas e CTAs escritos por humanos. Engajamento, conexão e conversão — sem cara de robô.</span>
+        <svg class="svc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
-
-      <a href="https://www.instagram.com/cerimonialnonalu/" target="_blank" class="case-card">
-        <div class="case-screenshot"><img src="img/case-cerimonial-nonalu.jpg" alt="Perfil @cerimonialnonalu no Instagram" /></div>
-        <div class="case-meta">
-          <div class="case-cat">Cerimonial · Eventos</div>
-          <div class="case-name">Nona Lú Cerimonial</div>
-          <div class="case-handle">@cerimonialnonalu</div>
-          <div class="case-stats">
-            <div class="case-stat"><div class="v">15,5 mil</div><div class="l">Seguidores</div></div>
-            <div class="case-stat"><div class="v">1.437</div><div class="l">Publicações</div></div>
-            <div class="case-stat"><div class="v">Vila Velha</div><div class="l">Espírito Santo</div></div>
-          </div>
-        </div>
+      <a class="svc-item" data-cursor>
+        <span class="svc-num">04</span>
+        <span class="svc-name">Gestão das redes</span>
+        <span class="svc-desc">Agendamento, publicação, monitoramento de comentários e DMs, e cuidado com a saúde do perfil.</span>
+        <svg class="svc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="svc-item" data-cursor>
+        <span class="svc-num">05</span>
+        <span class="svc-name">Relatórios de performance</span>
+        <span class="svc-desc">Métricas, análise de crescimento e recomendações claras pro próximo ciclo. Você sempre sabe onde está.</span>
+        <svg class="svc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="svc-item" data-cursor>
+        <span class="svc-num">06</span>
+        <span class="svc-name">Desenvolvimento de sites <span class="tag-new">Novo</span></span>
+        <span class="svc-desc">Sites e landing pages projetados pra conversão. Da estratégia ao código, com identidade coerente.</span>
+        <svg class="svc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ DEPOIMENTOS ============ -->
-<section class="section depoimentos">
+<!-- NÚMEROS -->
+<section class="section bg-ink stats-wrap">
   <div class="wrap">
-    <div class="section-head split reveal">
-      <div>
-        <div class="section-tag">Quem fala são eles</div>
-        <h2 class="section-title">Não somos nós dizendo. <em>São eles.</em></h2>
-      </div>
-      <p class="section-intro">
-        A confiança vira número, o número vira case, e o case vira história contada por quem viveu de perto.
-      </p>
+    <div class="stats-head reveal">
+      <div class="eyebrow fx" style="margin-bottom:24px"><span class="ln"></span> Resultado em escala</div>
+      <h2 class="s-title fx d1" style="max-width:16ch;margin:0 auto">Resultado que <span class="g">dá pra medir.</span></h2>
+      <p class="lead fx d2" style="margin-top:24px">Nada aqui é estimativa. Cada número vem de trabalho entregue — marca por marca, projeto por projeto.</p>
     </div>
+    <div class="stats-grid reveal">
+      <div class="stat"><div class="n"><span class="count" data-to="50" data-prefix="+">+0</span><span class="u">M</span></div><div class="k">Visualizações geradas</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="100" data-prefix="+">+0</span></div><div class="k">Marcas atendidas</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="5" data-prefix="+">+0</span><span class="u">mil</span></div><div class="k">Vídeos produzidos</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="40">0</span></div><div class="k">Nichos com resultado</div></div>
+    </div>
+    <p class="stats-foot fx">Por trás de cada número, <strong>uma marca que confiou na nossa direção.</strong></p>
+  </div>
+</section>
 
-    <div class="depo-grid reveal">
-      <div class="depo-card">
-        <div class="depo-mark">"</div>
-        <p class="depo-text"><span class="ph">Espaço para o primeiro depoimento real do cliente — como foi trabalhar com a VZ Connect, que resultado teve, o que mais gostou.</span></p>
-        <div class="depo-author">
-          <div class="depo-avatar ph">C1</div>
-          <div>
-            <div class="depo-name ph">Nome do cliente</div>
-            <div class="depo-role ph">Cargo · Empresa</div>
-          </div>
-        </div>
+<!-- CASES -->
+<section class="section bg-black" id="cases">
+  <div class="wrap">
+    <div class="cases-head reveal">
+      <div>
+        <div class="eyebrow fx" style="margin-bottom:22px"><span class="ln"></span> Cases reais</div>
+        <h2 class="s-title fx d1">Marcas que confiaram<br>— e <em>cresceram.</em></h2>
       </div>
-      <div class="depo-card">
-        <div class="depo-mark">"</div>
-        <p class="depo-text"><span class="ph">Espaço para o segundo depoimento real. Recomendado destacar proximidade, estratégia e qualidade da entrega.</span></p>
-        <div class="depo-author">
-          <div class="depo-avatar ph">C2</div>
-          <div>
-            <div class="depo-name ph">Nome do cliente</div>
-            <div class="depo-role ph">Cargo · Empresa</div>
-          </div>
-        </div>
+      <p class="lead fx d2">Perfis reais que produzimos, gerimos e direcionamos. Com nome, rosto e seguidores públicos. Toque para conhecer.</p>
+    </div>
+    <div class="cases-grid">
+      <a class="case reveal" href="https://www.instagram.com/gabrielzanette/" target="_blank" rel="noopener" data-cursor>
+        <div class="case-media"><div class="overlay"></div><img src="img/case-gabriel.png" alt="@gabrielzanette" loading="lazy"><span class="case-tag">Educação · Negócios</span><span class="case-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        <div class="case-body"><div><div class="case-name">Gabriel Zanette</div><div class="case-handle">@gabrielzanette</div></div><div class="case-metric"><div class="v">941 mil</div><div class="l">Seguidores</div></div></div>
+      </a>
+      <a class="case reveal" href="https://www.instagram.com/dra.julianacferrari/" target="_blank" rel="noopener" data-cursor>
+        <div class="case-media"><div class="overlay"></div><img src="img/case-juliana.png" alt="@dra.julianacferrari" loading="lazy"><span class="case-tag">Direito do consumidor</span><span class="case-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        <div class="case-body"><div><div class="case-name">Dra. Juliana C. Ferrari</div><div class="case-handle">@dra.julianacferrari</div></div><div class="case-metric"><div class="v">40,1 mil</div><div class="l">Seguidores</div></div></div>
+      </a>
+      <a class="case reveal" href="https://www.instagram.com/flynitaviagens/" target="_blank" rel="noopener" data-cursor>
+        <div class="case-media"><div class="overlay"></div><img src="img/case-flynita.png" alt="@flynitaviagens" loading="lazy"><span class="case-tag">Turismo · Viagens</span><span class="case-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        <div class="case-body"><div><div class="case-name">Flynita Viagens</div><div class="case-handle">@flynitaviagens</div></div><div class="case-metric"><div class="v">15,3 mil</div><div class="l">Seguidores</div></div></div>
+      </a>
+      <a class="case reveal" href="https://www.instagram.com/cerimonialnonalu/" target="_blank" rel="noopener" data-cursor>
+        <div class="case-media"><div class="overlay"></div><img src="img/case-nonalu.png" alt="@cerimonialnonalu" loading="lazy"><span class="case-tag">Eventos · Cerimonial</span><span class="case-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        <div class="case-body"><div><div class="case-name">Nona Lú Cerimonial</div><div class="case-handle">@cerimonialnonalu</div></div><div class="case-metric"><div class="v">15,5 mil</div><div class="l">Seguidores</div></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section bg-deep" id="depoimentos">
+  <div class="wrap">
+    <div class="dep-head reveal">
+      <div class="eyebrow fx" style="margin-bottom:22px"><span class="ln"></span> Quem fala são eles</div>
+      <h2 class="s-title fx d1">A confiança de quem <em>trabalha</em> com a gente.</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep reveal fx">
+        <p class="dep-quote">A VZ não me entrega "só" marketing, mas sim TUDO o que sustenta o processo: dedicação, cuidado aos detalhes, escuta ativa, trabalho em equipe. A FLYNITA sem a VZ não existe. A Rafa e o Dani são a prova viva de como os mais velhos têm a aprender com os mais novos.</p>
+        <div class="dep-meta"><div class="dep-av"><img src="img/dep-maria.jpg" alt="Maria Carolina"></div><div class="dep-who"><div class="nm">Maria Carolina</div><div class="rl">Fundadora · FLYNITA</div></div></div>
+      </div>
+      <div class="dep reveal fx d1">
+        <p class="dep-quote">Gosto de trabalhar com a Rafa e com o Dani porque eles viajam junto com as minhas ideias mirabolantes de conteúdo. São co-participativos, apresentam estratégias, trazem ideias novas. Eu recomendo demais.</p>
+        <div class="dep-meta"><div class="dep-av"><img src="img/dep-gabriel.jpg" alt="Gabriel Zanette"></div><div class="dep-who"><div class="nm">Gabriel Zanette</div><div class="rl">CEO · Liberfly</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ TAGLINE / MANIFESTO ============ -->
-<section class="section tagline-section">
-  <div class="tagline-inner reveal">
-    <div class="section-tag" style="justify-content: center;">
-      <span style="display: inline-block; width: 30px; height: 1px; background: var(--green-accent);"></span>
-      Nossa essência
-    </div>
-    <h2 class="tagline-headline">
-      Comunicação<br>
-      com <em>propósito.</em><br>
-      <span class="accent">Resultado</span> de verdade.
+<!-- MANIFESTO -->
+<section class="section manifesto reveal">
+  <div class="manifesto-sym" data-parallax="0.1"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></div>
+  <div class="wrap">
+    <h2>
+      <span class="line-mask"><span>Comunicação com <span class="g">propósito.</span></span></span>
+      <span class="line-mask"><span>Resultado <span class="g">de verdade.</span></span></span>
     </h2>
-    <p class="tagline-sub">
-      Essa frase não é só assinatura — é o filtro pelo qual passa tudo o que entregamos. Estratégia antes de execução. Identidade antes de tendência. Marca antes de número de seguidores.
-    </p>
+    <p class="fx d2">Não é só assinatura — é o filtro de tudo que entregamos. Estratégia antes de execução. Identidade antes de tendência. Marca antes de número de seguidores.</p>
   </div>
 </section>
 
-<!-- ============ EQUIPE ============ -->
-<section class="section equipe" id="equipe">
+<!-- CERTIFICAÇÕES -->
+<section class="section bg-black" id="certificacoes">
   <div class="wrap">
-    <div class="section-head split reveal">
-      <div>
-        <div class="section-tag">Quem somos</div>
-        <h2 class="section-title">Por trás <em>de cada</em> projeto.</h2>
-      </div>
-      <p class="section-intro">
-        A VZ Connect nasceu da parceria entre Daniel e Rafaella — uma dupla que decidiu fazer comunicação de um jeito mais próximo, mais estratégico e mais cuidadoso com a marca de cada cliente.
-      </p>
-    </div>
-
-    <div class="equipe-grid reveal">
-      <div class="membro">
-        <div class="membro-img"><img src="img/equipe-daniel.jpg" alt="Daniel, sócio-fundador da VZ Connect" /></div>
-        <div class="membro-info">
-          <div class="membro-role">Sócio-fundador</div>
-          <h3 class="membro-name">Daniel</h3>
-          <p class="membro-bio">Visão estratégica de marca, direção de projetos e o "como" de cada decisão criativa. <span class="ph">Ajustar descrição com a sua trajetória.</span></p>
-          <div class="membro-tags">
-            <span class="membro-tag">Estratégia</span>
-            <span class="membro-tag">Direção</span>
-            <span class="membro-tag">Comercial</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="membro">
-        <div class="membro-img"><img src="img/equipe-rafaella.jpg" alt="Rafaella, sócia da VZ Connect" /></div>
-        <div class="membro-info">
-          <div class="membro-role">Sócia-fundadora</div>
-          <h3 class="membro-name">Rafaella</h3>
-          <p class="membro-bio">Sensibilidade visual, escuta ativa do cliente e cuidado com cada detalhe da entrega. <span class="ph">Ajustar descrição com a sua trajetória.</span></p>
-          <div class="membro-tags">
-            <span class="membro-tag">Criação</span>
-            <span class="membro-tag">Visual</span>
-            <span class="membro-tag">Relacionamento</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ REDES SOCIAIS ============ -->
-<section class="section redes" id="redes">
-  <div class="wrap">
-    <div class="section-head center reveal" style="text-align:center;">
-      <div class="section-tag" style="justify-content:center;">
-        <span style="display:inline-block;width:30px;height:1px;background:var(--green-accent);"></span>
-        Acompanhe a gente
-      </div>
-      <h2 class="section-title" style="margin:0 auto 18px;max-width:24ch;">
-        Nossas <em>redes sociais.</em>
+    <div class="cert-head reveal">
+      <h2 class="s-title">
+        <span class="line-mask"><span>Formados onde os</span></span>
+        <span class="line-mask"><span><em>melhores</em> formam.</span></span>
       </h2>
-      <p class="section-intro" style="margin:0 auto;">
-        Conteúdo de bastidores, dicas estratégicas e o que está sendo produzido pelos nossos clientes.
-      </p>
+      <p class="lead fx d2">Escolas reconhecidas de marketing digital, social media e tráfego pago. O conteúdo que produzimos passa por esse filtro técnico.</p>
     </div>
-
-    <div class="redes-grid reveal">
-      <a href="#" class="rede-card ph" target="_blank">
-        <div class="rede-icon"><i class="ti ti-brand-instagram"></i></div>
-        <div class="rede-info">
-          <div class="rede-label">Segue lá no Instagram</div>
-          <div class="rede-handle">@ a confirmar</div>
+    <div class="cert-grid">
+      <div class="cert reveal fx">
+        <div class="cert-top">
+          <div class="cert-logo"><img src="img/cert-organick.png" alt="Organick"></div>
+          <div><div class="cert-title">Organick</div><div class="cert-sub">Formação completa</div></div>
         </div>
-        <i class="ti ti-arrow-up-right rede-arrow"></i>
-      </a>
-      <a href="#" class="rede-card ph" target="_blank">
-        <div class="rede-icon"><i class="ti ti-brand-linkedin"></i></div>
-        <div class="rede-info">
-          <div class="rede-label">Perfil no LinkedIn</div>
-          <div class="rede-handle">VZ Connect</div>
+        <div class="cert-skills"><span class="sk">Social Media</span><span class="sk">Iluminação</span><span class="sk">Edição de Vídeo</span><span class="sk">Tráfego Pago · Meta Ads</span></div>
+      </div>
+      <div class="cert reveal fx d1">
+        <div class="cert-top">
+          <div class="cert-logo"><img src="img/cert-internet-academy.png" alt="Internet Academy"></div>
+          <div><div class="cert-title">Internet Academy</div><div class="cert-sub">Formação aplicada</div></div>
         </div>
-        <i class="ti ti-arrow-up-right rede-arrow"></i>
-      </a>
+        <div class="cert-skills"><span class="sk">Social Media</span><span class="sk">Tráfego Pago · Meta Ads</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FALE CONOSCO ============ -->
-<section class="section fale-conosco" id="contato">
+<!-- EQUIPE -->
+<section class="section bg-ink" id="equipe">
   <div class="wrap">
-    <div class="section-head center reveal" style="text-align:center;">
-      <div class="section-tag" style="justify-content:center;">
-        <span style="display:inline-block;width:30px;height:1px;background:var(--green-accent);"></span>
-        Vamos conversar
-      </div>
-      <h2 class="section-title" style="margin:0 auto 18px;max-width:24ch;">
-        Envie uma <em>mensagem</em> e receba nosso contato.
+    <div class="team-head reveal">
+      <h2 class="s-title">
+        <span class="line-mask"><span>A parceria por trás</span></span>
+        <span class="line-mask"><span>de <em>cada</em> projeto.</span></span>
       </h2>
-      <p class="section-intro" style="margin:0 auto;">
-        Quanto mais detalhada a mensagem, mais certeira nossa resposta. Retornamos em até 1 dia útil.
-      </p>
+      <p class="lead fx d2">A VZ CONNECT nasceu da parceria entre <strong>Daniel e Rafaella</strong> — dois sócios incomodados com o marketing raso de sempre. A escolha foi fazer diferente.</p>
     </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="member-media img-reveal">
+          <img src="img/daniel.jpg" alt="Daniel">
+          <div class="badge"><div><div class="member-name">Daniel</div><div class="member-role">Direção estratégica</div></div></div>
+        </div>
+        <p class="member-bio fx d1">Lidera a direção estratégica dos projetos, do briefing à execução. Comunicação próxima, estratégica e cuidadosa com a marca de cada cliente.</p>
+      </div>
+      <div class="member reveal">
+        <div class="member-media img-reveal">
+          <img src="img/rafaella.jpg" alt="Rafaella">
+          <div class="badge"><div><div class="member-name">Rafaella</div><div class="member-role">Direção criativa</div></div></div>
+        </div>
+        <p class="member-bio fx d1">Lidera a direção criativa, garantindo que cada peça tenha intenção e o DNA do cliente. Comunicação com identidade, não com fórmula pronta.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="contato-grid reveal">
-      <form id="form-contato" class="contato-form" action="https://formspree.io/f/mdajawjo" method="POST">
+<!-- CONTATO -->
+<section class="section contact" id="contato">
+  <div class="contact-sym" data-parallax="0.12"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></div>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="eyebrow fx"><span class="ln"></span> Vamos conversar</div>
+        <h2 class="s-title fx d1">Pronto pra dar <span class="g">direção</span> à sua marca?</h2>
+        <p class="lead fx d2">Conta pra gente sobre o seu momento. Entendemos o que você precisa, mostramos os caminhos e desenhamos juntos o próximo passo.</p>
+        <div class="contact-info fx d3">
+          <a href="https://wa.me/5527998431267" target="_blank" rel="noopener" data-cursor>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.8a8 8 0 1 1 3.4 3.3L3 21"/><path d="M9 10c.5 2 2 3.5 4 4l1.3-1.3c.3-.3.7-.4 1-.2.6.3 1.3.5 1.9.6.4.1.6.4.6.8v1.6c0 .5-.4.9-.9.9-5 0-9-4-9-9 0-.5.4-.9.9-.9h1.6c.4 0 .7.2.8.6.1.6.3 1.3.6 1.9.2.3.1.7-.2 1L9 10z" fill="currentColor" stroke="none"/></svg></span>
+            <span class="tx"><span class="k">WhatsApp</span><span class="v">(27) 99843-1267</span></span>
+          </a>
+          <a href="mailto:contato@vzconnect.com.br" data-cursor>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span class="tx"><span class="k">E-mail</span><span class="v">contato@vzconnect.com.br</span></span>
+          </a>
+          <a href="#top" data-cursor>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.7-6-10a6 6 0 1 1 12 0c0 4.3-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></span>
+            <span class="tx"><span class="k">Onde estamos</span><span class="v">Vila Velha · Espírito Santo</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="form reveal fx d1">
         <div class="form-row">
-          <div class="form-field">
-            <label>Nome</label>
-            <input type="text" name="nome" placeholder="Seu nome completo" required>
-          </div>
-          <div class="form-field">
-            <label>Empresa</label>
-            <input type="text" name="empresa" placeholder="Nome da empresa ou perfil">
-          </div>
+          <div class="fld"><label for="f-nome">Nome</label><input type="text" id="f-nome" placeholder="Seu nome"></div>
+          <div class="fld"><label for="f-tel">Telefone</label><input type="tel" id="f-tel" placeholder="(00) 00000-0000"></div>
         </div>
-        <div class="form-field">
-          <label>Telefone</label>
-          <input type="tel" name="telefone" placeholder="(00) 00000-0000" minlength="14" maxlength="15" required>
+        <div class="fld"><label for="f-marca">Marca / Empresa</label><input type="text" id="f-marca" placeholder="Nome da sua marca"></div>
+        <div class="fld"><label for="f-servico">O que você procura?</label>
+          <select id="f-servico">
+            <option value="">Selecione</option>
+            <option>Gestão de redes sociais</option>
+            <option>Captação &amp; produção de vídeos</option>
+            <option>Stories (storymaker)</option>
+            <option>Desenvolvimento de site</option>
+            <option>Combo site + social media</option>
+            <option>Ainda não sei / quero orientação</option>
+          </select>
         </div>
-        <div class="form-field">
-          <label>E-mail</label>
-          <input type="email" name="email" placeholder="seu@email.com" required>
-        </div>
-        <div class="form-field">
-          <label>Mensagem</label>
-          <textarea name="mensagem" rows="4" placeholder="Conte um pouco sobre seu projeto, seus objetivos e como podemos ajudar." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <i class="ti ti-send"></i>
-          Enviar mensagem
-        </button>
-        <p class="form-note">
-          <i class="ti ti-info-circle"></i>
-          Ao clicar em enviar, você será redirecionado para o WhatsApp com sua mensagem preenchida.
-        </p>
-      </form>
-
-      <div class="contato-info">
-        <div class="contato-info-card">
-          <div class="contato-info-icon"><i class="ti ti-phone"></i></div>
-          <div class="contato-info-label">Telefone</div>
-          <a href="tel:+5527998431267" class="contato-info-value">(27) 99843-1267</a>
-        </div>
-        <div class="contato-info-card">
-          <div class="contato-info-icon"><i class="ti ti-mail"></i></div>
-          <div class="contato-info-label">E-mail</div>
-          <a href="mailto:contato@vzconnect.com.br" class="contato-info-value">contato@vzconnect.com.br</a>
-        </div>
-        <div class="contato-info-card">
-          <div class="contato-info-icon"><i class="ti ti-map-pin"></i></div>
-          <div class="contato-info-label">Onde estamos</div>
-          <div class="contato-info-value">Espírito Santo · Brasil</div>
-          <div class="contato-info-sub">Atendemos clientes em todo o país</div>
-        </div>
-        <a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Encontrei%20a%20VZ%20Connect%20pelo%20site." target="_blank" class="contato-info-cta">
-          <i class="ti ti-brand-whatsapp"></i>
-          Prefere ir direto pelo WhatsApp?
-        </a>
+        <div class="fld"><label for="f-msg">Mensagem</label><textarea id="f-msg" placeholder="Conta um pouco sobre o seu momento e o que você quer alcançar."></textarea></div>
+        <button class="btn btn-primary" id="send-btn" data-cursor><span>Enviar pelo WhatsApp</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+        <p class="form-note">Ao enviar, abrimos o WhatsApp com a mensagem pronta. Sem spam, sem compromisso.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand-block">
-        <a href="#inicio" class="nav-brand">
-          <span class="logo-placeholder"></span>
-          <span class="name">VZ CONNECT</span>
-        </a>
-        <p>Comunicação com propósito. Resultado de verdade. Agência de social media estratégico com sede no Espírito Santo, atuando em todo o Brasil.</p>
-        <div class="footer-tagline">— Comunicação com propósito. Resultado de verdade.</div>
-      </div>
-      <div class="footer-col">
-        <h5>Navegação</h5>
-        <a href="#servicos">Serviços</a>
-          <a href="#cases">Cases</a>
-        <a href="#certificacoes">Certificações</a>
-        <a href="#equipe">Quem somos</a>
-        <a href="#carreiras">Trabalhe conosco</a>
-        <a href="#contato">Contato</a>
-      </div>
-      <div class="footer-col">
-        <h5>Contato</h5>
-        <a href="tel:+5527998431267">(27) 99843-1267</a>
-        <a href="mailto:contato@vzconnect.com.br">contato@vzconnect.com.br</a>
-        <p>Espírito Santo · Brasil</p>
-      </div>
-      <div class="footer-col">
-        <h5>Redes sociais</h5>
-        <a href="#" class="ph">Instagram (novo @ em breve)</a>
-        <a href="#" class="ph">Facebook (em breve)</a>
-        <a href="#" class="ph">LinkedIn (em breve)</a>
+    <div class="foot-cta reveal">
+      <div class="eyebrow fx" style="justify-content:center;margin-bottom:26px"><span class="ln"></span> Comunicação com propósito</div>
+      <div class="big">
+        <span class="line-mask"><span>Vamos construir</span></span>
+        <span class="line-mask"><span><a href="#contato" data-cursor>algo de verdade.</a></span></span>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 VZ Connect · Todos os direitos reservados</span>
-      <div class="footer-social">
-        <a href="#" title="Instagram" class="ph"><i class="ti ti-brand-instagram"></i></a>
-        <a href="#" title="Facebook" class="ph"><i class="ti ti-brand-facebook"></i></a>
-        <a href="#" title="LinkedIn" class="ph"><i class="ti ti-brand-linkedin"></i></a>
-        <a href="https://wa.me/5527998431267" target="_blank" title="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><svg class="sym" viewBox="0 0 1123 652"><use href="#vzsym"/></svg><span class="name">VZ CONNECT</span></div>
+        <p>Agência de comunicação estratégica em Vila Velha, ES. Tratamos sua marca como um ativo — não como um mural de posts.</p>
+        <div class="tag">Comunicação com propósito. Resultado de verdade.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#servicos" data-cursor>Serviços</a>
+        <a href="#cases" data-cursor>Cases</a>
+        <a href="#equipe" data-cursor>Quem somos</a>
+        <a href="#certificacoes" data-cursor>Certificações</a>
+        <a href="#contato" data-cursor>Contato</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5527998431267" target="_blank" rel="noopener" data-cursor>(27) 99843-1267</a>
+        <a href="mailto:contato@vzconnect.com.br" data-cursor>contato@vzconnect.com.br</a>
+        <a href="https://www.linkedin.com/company/vz-connect/" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" data-cursor>Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>
+        <div class="cp">© 2026 VZ CONNECT. Todos os direitos reservados.</div>
+        <div class="cnpj">CNPJ 64.376.461/0001-46 · Vila Velha — ES</div>
+      </div>
+      <div class="foot-social">
+        <a href="https://instagram.com/" target="_blank" rel="noopener" data-cursor aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.linkedin.com/company/vz-connect/" target="_blank" rel="noopener" data-cursor aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 0 1 4 0v3M12 11v5"/></svg></a>
+        <a href="https://wa.me/5527998431267" target="_blank" rel="noopener" data-cursor aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.8a8 8 0 1 1 3.4 3.3L3 21"/></svg></a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- ============ PAINEL LATERAL DE CONTATOS ============ -->
-<button class="contact-float" type="button" onclick="abrirPainelContato()" aria-label="Abrir painel de contato">
-  <i class="ti ti-messages"></i>
-  <span class="cf-label">Fale conosco</span>
-</button>
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20VZ%20CONNECT." target="_blank" rel="noopener" class="wa" data-cursor aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.21-3.66-.77-3.08-1.21-5.05-4.32-5.2-4.52-.15-.2-1.24-1.65-1.24-3.15 0-1.5.79-2.24 1.07-2.54.28-.31.61-.38.81-.38.2 0 .41 0 .58.01.19.01.43-.07.68.52.24.59.83 2.03.9 2.18.07.15.12.33.02.53-.1.2-.15.33-.29.5-.15.18-.31.39-.44.53-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.64-.08.17-.2.74-.86.94-1.16.2-.3.39-.25.66-.15.27.1 1.71.81 2 .96.3.15.49.22.56.34.07.13.07.73-.17 1.41z"/></svg>
+</a>
 
-<div class="contact-overlay" id="contact-overlay" onclick="fecharPainelContato()"></div>
-
-<aside class="contact-panel" id="contact-panel" role="dialog" aria-modal="true" aria-labelledby="cp-title">
-  <div class="cp-header">
-    <div class="cp-header-text">
-      <span class="cp-tag">Fale com a VZ Connect</span>
-      <h3 class="cp-title" id="cp-title">Vamos conversar <em>sobre sua marca?</em></h3>
-    </div>
-    <button class="cp-close" type="button" onclick="fecharPainelContato()" aria-label="Fechar painel">
-      <i class="ti ti-x"></i>
-    </button>
-  </div>
-
-  <div class="cp-body">
-
-    <!-- Contatos diretos -->
-    <div>
-      <span class="cp-section-label">Canais diretos</span>
-      <div class="cp-contacts">
-        <a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Encontrei%20a%20VZ%20Connect%20pelo%20site." target="_blank" class="cp-contact cp-contact-wpp">
-          <div class="cp-contact-icon"><i class="ti ti-brand-whatsapp"></i></div>
-          <div class="cp-contact-text">
-            <div class="cp-contact-label">WhatsApp · resposta rápida</div>
-            <div class="cp-contact-value">(27) 99843-1267</div>
-          </div>
-          <i class="ti ti-arrow-up-right cp-contact-arrow"></i>
-        </a>
-        <a href="mailto:contato@vzconnect.com.br" class="cp-contact">
-          <div class="cp-contact-icon"><i class="ti ti-mail"></i></div>
-          <div class="cp-contact-text">
-            <div class="cp-contact-label">E-mail</div>
-            <div class="cp-contact-value">contato@vzconnect.com.br</div>
-          </div>
-          <i class="ti ti-arrow-up-right cp-contact-arrow"></i>
-        </a>
-        <a href="tel:+5527998431267" class="cp-contact">
-          <div class="cp-contact-icon"><i class="ti ti-phone"></i></div>
-          <div class="cp-contact-text">
-            <div class="cp-contact-label">Telefone</div>
-            <div class="cp-contact-value">(27) 99843-1267</div>
-          </div>
-          <i class="ti ti-arrow-up-right cp-contact-arrow"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- Mini formulário -->
-    <div>
-      <span class="cp-section-label">Ou mande uma mensagem rápida</span>
-      <div class="cp-form">
-        <input type="text" id="cp-nome" class="cp-input" placeholder="Seu nome" autocomplete="name" />
-        <textarea id="cp-mensagem" class="cp-textarea" placeholder="Conte rapidamente sobre sua marca ou o que precisa..." rows="4"></textarea>
-        <button type="button" class="cp-submit" onclick="enviarMiniFormWhatsapp()">
-          Enviar pelo WhatsApp
-          <i class="ti ti-brand-whatsapp"></i>
-        </button>
-        <p class="cp-hint">Sua mensagem abre diretamente no WhatsApp da agência.</p>
-      </div>
-    </div>
-
-    <!-- Redes sociais -->
-    <div>
-      <span class="cp-section-label">Acompanhe a gente</span>
-      <div class="cp-socials">
-        <a href="https://instagram.com/" target="_blank" class="cp-social" title="Instagram" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-        <a href="https://linkedin.com/" target="_blank" class="cp-social" title="LinkedIn" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
-        <a href="https://facebook.com/" target="_blank" class="cp-social" title="Facebook" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
-      </div>
-    </div>
-
-  </div>
-</aside>
-
-    <script src="script.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
-
