@@ -48,20 +48,20 @@
   }
 
   /* ---------- SMOOTH SCROLL (Lenis) ---------- */
-  var lenis = null;
-  function initLenis() {
-    if (reduced) return;
-    if (typeof Lenis === 'undefined') {
-      // script com defer pode ainda não ter carregado; tenta de novo em breve
-      if (initLenis._tries === undefined) initLenis._tries = 0;
-      if (initLenis._tries++ < 20) { setTimeout(initLenis, 150); }
-      return;
-    }
-    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    document.documentElement.classList.add('lenis');
-  }
+  // var lenis = null;
+  // function initLenis() {
+  //   if (reduced) return;
+  //   if (typeof Lenis === 'undefined') {
+  //     // script com defer pode ainda não ter carregado; tenta de novo em breve
+  //     if (initLenis._tries === undefined) initLenis._tries = 0;
+  //     if (initLenis._tries++ < 20) { setTimeout(initLenis, 150); }
+  //     return;
+  //   }
+  //   lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+  //   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  //   requestAnimationFrame(raf);
+  //   document.documentElement.classList.add('lenis');
+  // }
 
   /* ---------- ÂNCORAS suaves ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
