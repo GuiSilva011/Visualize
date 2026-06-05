@@ -310,7 +310,7 @@ body::after
 .line-mask
 {
   display:block;
-  overflow:hidden
+  overflow: visible;
 }
 
 .line-mask > span
