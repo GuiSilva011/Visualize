@@ -2834,6 +2834,8 @@ h1.hero-title{
 .rotor-wrap{
   line-height:1.16;
   padding-bottom:.08em;
+  color:green;
+  font-style: bold-italic;
 }
 
 h1.hero-title em{
