@@ -199,7 +199,7 @@
   /* ---------- ROTOR (palavra rotativa do hero) ---------- */
   var rotor = document.getElementById('rotor');
   if (rotor && !reduced) {
-    var words = ['direção', 'estratégia', 'consistência', 'propósito', 'resultado'];
+    var words = ['direção.', 'estratégia.', 'consistência.', 'propósito.', 'resultado.'];
     var ri = 0;
     setInterval(function () {
       rotor.classList.add('out');
