@@ -379,13 +379,14 @@
         </div>
       </div>
       <div class="form reveal fx d1">
+        <form id="contact-form" action="https://formspree.io/f/mdajawjo" method="POST">
         <div class="form-row">
-          <div class="fld"><label for="f-nome">Nome</label><input type="text" id="f-nome" placeholder="Seu nome"></div>
-          <div class="fld"><label for="f-tel">Telefone</label><input type="tel" id="f-tel" placeholder="(00) 00000-0000"></div>
+          <div class="fld"><label for="f-nome">Nome</label><input type="text" id="f-nome" name="nome" placeholder="Seu nome" required></div>
+          <div class="fld"><label for="f-tel">Telefone</label><input type="tel" id="f-tel" name="telefone" placeholder="(00) 00000-0000" inputmode="numeric"></div>
         </div>
-        <div class="fld"><label for="f-marca">Marca / Empresa</label><input type="text" id="f-marca" placeholder="Nome da sua marca"></div>
+        <div class="fld"><label for="f-marca">Marca / Empresa</label><input type="text" id="f-marca" name="marca" placeholder="Nome da sua marca"></div>
         <div class="fld"><label for="f-servico">O que você procura?</label>
-          <select id="f-servico">
+          <select id="f-servico" name="servico">
             <option value="">Selecione</option>
             <option>Gestão de redes sociais</option>
             <option>Captação &amp; produção de vídeos</option>
@@ -395,9 +396,10 @@
             <option>Ainda não sei / quero orientação</option>
           </select>
         </div>
-        <div class="fld"><label for="f-msg">Mensagem</label><textarea id="f-msg" placeholder="Conta um pouco sobre o seu momento e o que você quer alcançar."></textarea></div>
-        <button class="btn btn-primary" id="send-btn" data-cursor><span>Enviar pelo WhatsApp</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
-        <p class="form-note">Ao enviar, abrimos o WhatsApp com a mensagem pronta. Sem spam, sem compromisso.</p>
+        <div class="fld"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" placeholder="Conta um pouco sobre o seu momento e o que você quer alcançar."></textarea></div>
+        <button class="btn btn-primary" type="submit" id="send-btn" data-cursor><span>Enviar mensagem</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+        <p class="form-note" id="form-status">Entraremos em contato em breve. Sem spam, sem compromisso.</p>
+        </form>
       </div>
     </div>
   </div>

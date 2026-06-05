@@ -152,22 +152,49 @@
   }
 
 
-  /* ---------- FORM → WHATSAPP ---------- */
-  var sendBtn = document.getElementById('send-btn');
-  if (sendBtn) sendBtn.addEventListener('click', enviarFormularioWhatsapp);
+  /* ---------- FORM → FORMSPREE ---------- */
+  var contactForm = document.getElementById('contact-form');
+  var formStatus = document.getElementById('form-status');
 
-  function enviarFormularioWhatsapp() {
-    var g = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-    var nome = g('f-nome'), tel = g('f-tel'), marca = g('f-marca'), servico = g('f-servico'), msg = g('f-msg');
-    if (!nome) { alert('Por favor, preencha seu nome.'); var n = document.getElementById('f-nome'); if (n) n.focus(); return; }
-    var l = ['Olá, VZ CONNECT! Vim pelo site.', '', '*Nome:* ' + nome];
-    if (tel) l.push('*Telefone:* ' + tel);
-    if (marca) l.push('*Marca/Empresa:* ' + marca);
-    if (servico) l.push('*Interesse:* ' + servico);
-    if (msg) { l.push(''); l.push('*Mensagem:*'); l.push(msg); }
-    window.open('https://wa.me/5527998431267?text=' + encodeURIComponent(l.join('\n')), '_blank');
+  // Phone: allow only digits, spaces, +, (, ), -
+  var telInput = document.getElementById('f-tel');
+  if (telInput) {
+    telInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^\d\s\+\(\)\-]/g, '');
+    });
+    telInput.addEventListener('keypress', function (e) {
+      if (!/[\d\s\+\(\)\-]/.test(e.key)) e.preventDefault();
+    });
   }
-  window.enviarFormularioWhatsapp = enviarFormularioWhatsapp;
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('send-btn');
+      var btnSpan = btn ? btn.querySelector('span') : null;
+      if (btn) btn.disabled = true;
+      if (btnSpan) btnSpan.textContent = 'Enviando…';
+      if (formStatus) { formStatus.textContent = 'Enviando sua mensagem…'; formStatus.style.color = 'var(--sage)'; }
+      try {
+        var res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.reset();
+          if (formStatus) { formStatus.textContent = '✓ Mensagem enviada! Entraremos em contato em breve.'; formStatus.style.color = 'var(--sage-light)'; }
+          if (btnSpan) btnSpan.textContent = 'Enviado!';
+        } else {
+          throw new Error('fail');
+        }
+      } catch (err) {
+        if (formStatus) { formStatus.textContent = 'Erro ao enviar. Tente pelo WhatsApp ou e-mail.'; formStatus.style.color = '#e07070'; }
+        if (btn) btn.disabled = false;
+        if (btnSpan) btnSpan.textContent = 'Enviar mensagem';
+      }
+    });
+  }
 
   /* ---------- ROTOR (palavra rotativa do hero) ---------- */
   var rotor = document.getElementById('rotor');

@@ -1663,7 +1663,8 @@ h1.hero-title em
 {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:clamp(20px,2.4vw,34px)
+  gap:clamp(20px,2.4vw,34px);
+  align-items:start
 }
 
 .case
@@ -1679,7 +1680,7 @@ h1.hero-title em
 
 .case:nth-child(even)
 {
-  transform:translateY(clamp(0px,4vw,48px))
+  transform:none
 }
 
 .case:hover
@@ -2111,7 +2112,8 @@ h1.hero-title em
 {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:clamp(22px,3vw,40px)
+  gap:clamp(22px,3vw,40px);
+  align-items:start
 }
 
 .member
@@ -2122,10 +2124,10 @@ h1.hero-title em
 .member-media
 {
   position:relative;
-  border-radius:4px;
+  border-radius:12px;
   overflow:hidden;
   aspect-ratio:4/4.6;
-  background:linear-gradient(160deg,var(--green),var(--green-deep))
+  background:#000;
 }
 
 .member-media img
@@ -2164,7 +2166,7 @@ h1.hero-title em
   left:0;
   right:0;
   padding:22px 24px;
-  background:linear-gradient(to top,rgba(29,29,27,.92),transparent);
+  background:rgba(0,0,0,.82);
   z-index:1;
   display:flex;
   justify-content:space-between;
