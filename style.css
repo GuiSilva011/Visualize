@@ -1,11 +1,10 @@
-
 :root {
   /* ============================================================
      VZ CONNECT — Preto dominante
-     Preto:     #1D1D1B — base visual principal
+     Preto:     #1D1D1B — base visual / fundo principal
      Off-white: #E5E6E7 — textos principais e botões
      Cinza:     #A6A8AA — textos secundários e bordas
-     Verde:     #0E352D — preservado somente como detalhe discreto
+     Verde:     #0E352D — cor de DESTAQUE (texto e elementos)
      ============================================================ */
 
   /* Cores principais */
@@ -14,6 +13,10 @@
   --off: #E5E6E7;
   --gray: #A6A8AA;
   --green: #0E352D;
+
+  /* Verde para TEXTO de destaque (clareado p/ contraste no preto) */
+  --green-text: #2E8A74;
+  --green-text-soft: #267A66;
 
   /* Superfícies escuras */
   --ink: #1D1D1B;
@@ -35,17 +38,17 @@
   --gray-soft: rgba(166,168,170,.16);
   --label: rgba(166,168,170,.70);
 
-  /* Verde preservado */
+  /* Verde — elementos e detalhes */
   --green-deep: #08251F;
   --green-soft: rgba(14,53,45,.72);
-  --green-line: rgba(14,53,45,.66);
-  --green-glow: rgba(14,53,45,.22);
-  --green-wash: rgba(14,53,45,.12);
+  --green-line: rgba(46,138,116,.55);
+  --green-glow: rgba(46,138,116,.22);
+  --green-wash: rgba(46,138,116,.14);
 
-  /* Compatibilidade */
-  --sage: #E5E6E7;
-  --sage-light: #D8D9DA;
-  --sage-soft: #A6A8AA;
+  /* Compatibilidade — destaques agora apontam p/ VERDE */
+  --sage: #2E8A74;
+  --sage-light: #3DA98E;
+  --sage-soft: rgba(46,138,116,.50);
   --silver: #E5E6E7;
   --silver-2: #A6A8AA;
 
@@ -281,13 +284,13 @@ body::after
 
 .s-title .g
 {
-  color:var(--sage)
+  color:var(--green-text)
 }
 
 .s-title em
 {
   font-style:italic;
-  color:var(--sage-light);
+  color:var(--green-text);
   font-family:Georgia,serif
 }
 
@@ -552,7 +555,7 @@ nav.scrolled{
   right:16px;
   bottom:4px;
   height:1px;
-  background:var(--sage);
+  background:var(--green-text);
   transform:scaleX(0);
   transform-origin:right;
   transition:transform .4s var(--ease);
@@ -699,7 +702,7 @@ nav.scrolled{
 
 .menu-overlay a:hover
 {
-  color:var(--sage)
+  color:var(--green-text)
 }
 
 .menu-foot
@@ -756,15 +759,15 @@ nav.scrolled{
   mask-image:radial-gradient(80% 70% at 50% 45%, #000, transparent);
 }
 
-/* símbolo gigante que faz parallax */
+/* símbolo gigante que faz parallax — agora em VERDE de destaque */
 .hero-sym{
   position:absolute;
   right:-8%;
   top:46%;
   z-index:0;
   width:min(64vw,780px);
-  color:#000000;
-  opacity:.24;
+  color:var(--green);
+  opacity:.20;
   transform:translateY(-50%);
   will-change:transform;
 }
@@ -811,25 +814,25 @@ nav.scrolled{
   width:7px;
   height:7px;
   border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 0 0 rgba(14,53,45,.35);
+  background:var(--green-text);
+  box-shadow:0 0 0 0 rgba(46,138,116,.35);
   animation:pulse 2.8s infinite;
 }
 
 @keyframes pulse {
   0%
   {
-    box-shadow:0 0 0 0 rgba(14,53,45,.42);
+    box-shadow:0 0 0 0 rgba(46,138,116,.42);
   }
 
   70%
   {
-    box-shadow:0 0 0 10px rgba(14,53,45,0);
+    box-shadow:0 0 0 10px rgba(46,138,116,0);
   }
 
   100%
   {
-    box-shadow:0 0 0 0 rgba(14,53,45,0);
+    box-shadow:0 0 0 0 rgba(46,138,116,0);
   }
 
 }
@@ -852,21 +855,21 @@ h1.hero-title{
 
 h1.hero-title .g
 {
-  color:var(--sage)
+  color:var(--green-text)
 }
 
 h1.hero-title em
 {
   font-style:italic;
   font-family:Georgia,serif;
-  color:var(--sage-light)
+  color:var(--green-text)
 }
 
 /* palavra rotativa */
 .rotor-wrap
 {
   display:inline-block;
-  color:var(--sage);
+  color:var(--green-text);
   font-style:italic;
   font-family:Georgia,serif;
   position:relative
@@ -961,8 +964,8 @@ h1.hero-title em
   right:-30%;
   bottom:-25%;
   width:90%;
-  color:#000000;
-  opacity:.36;
+  color:var(--green);
+  opacity:.30;
   z-index:0;
 }
 
@@ -1005,7 +1008,7 @@ h1.hero-title em
   gap:8px;
   font-size:11px;
   letter-spacing:.06em;
-  color:var(--sage-light);
+  color:var(--green-text);
   text-transform:uppercase
 }
 
@@ -1014,7 +1017,7 @@ h1.hero-title em
   width:7px;
   height:7px;
   border-radius:50%;
-  background:var(--green);
+  background:var(--green-text);
   animation:pulse 2.8s infinite;
 }
 
@@ -1106,14 +1109,14 @@ h1.hero-title em
   align-items:center;
   gap:10px;
   font-size:12px;
-  color:var(--sage-light)
+  color:var(--green-text)
 }
 
 .hc-foot-single svg
 {
   width:17px;
   height:17px;
-  color:var(--sage);
+  color:var(--green-text);
   flex:none
 }
 
@@ -1157,7 +1160,7 @@ h1.hero-title em
   content:"";
   position:absolute;
   inset:0;
-  background:var(--gray);
+  background:var(--green);
   transform:translateY(101%);
   transition:transform .5s var(--ease);
   z-index:1;
@@ -1165,12 +1168,8 @@ h1.hero-title em
 
 .btn-primary:hover
 {
-  color:var(--ink)
-}
-
-.btn-primary:hover::before
-{
-  transform:translateY(0)
+  color:var(--off);
+  border-color:var(--green);
 }
 
 .btn-primary:hover .arr
@@ -1231,7 +1230,7 @@ h1.hero-title em
 {
   width:1px;
   height:46px;
-  background:linear-gradient(var(--sage),transparent);
+  background:linear-gradient(var(--green-text),transparent);
   position:relative;
   overflow:hidden
 }
@@ -1310,7 +1309,7 @@ h1.hero-title em
 {
   width:18px;
   height:18px;
-  color:var(--sage);
+  color:var(--green-text);
   flex:none
 }
 
@@ -1351,7 +1350,7 @@ h1.hero-title em
 
 .intro-text .g
 {
-  color:var(--sage)
+  color:var(--green-text)
 }
 
 .intro-grid
@@ -1375,7 +1374,7 @@ h1.hero-title em
 {
   font-family:var(--display);
   font-size:17px;
-  color:var(--sage);
+  color:var(--green-text);
   margin-bottom:7px
 }
 
@@ -1483,8 +1482,8 @@ h1.hero-title em
   font-size:9px;
   letter-spacing:.16em;
   font-weight:700;
-  color:var(--black);
-  background:var(--sage);
+  color:var(--off);
+  background:var(--green);
   padding:4px 9px;
   border-radius:100px;
   text-transform:uppercase
@@ -1504,7 +1503,7 @@ h1.hero-title em
 {
   opacity:1;
   transform:rotate(0) scale(1);
-  color:var(--sage)
+  color:var(--green-text)
 }
 
 @media (max-width:860px)
@@ -1597,7 +1596,7 @@ h1.hero-title em
 
 .stat .n .u
 {
-  color:var(--sage);
+  color:var(--green-text);
   font-size:.5em;
   vertical-align:super;
   margin-left:1px
@@ -1790,7 +1789,7 @@ h1.hero-title em
 .case-handle
 {
   font-size:12.5px;
-  color:var(--sage);
+  color:var(--green-text);
   margin-top:5px
 }
 
@@ -1921,7 +1920,7 @@ h1.hero-title em
 .dep-who .rl
 {
   font-size:12px;
-  color:var(--sage);
+  color:var(--green-text);
   letter-spacing:.03em;
   margin-top:3px
 }
@@ -1973,7 +1972,7 @@ h1.hero-title em
 
 .manifesto h2 .g
 {
-  color:var(--sage-light)
+  color:var(--green-text)
 }
 
 .manifesto p
@@ -1981,7 +1980,7 @@ h1.hero-title em
   margin:clamp(26px,4vw,42px) auto 0;
   max-width:58ch;
   font-size:clamp(14px,1.5vw,17px);
-  color:var(--sage-light);
+  color:var(--gray-light);
   line-height:1.7
 }
 
@@ -2178,7 +2177,7 @@ h1.hero-title em
 {
   font-size:10px;
   letter-spacing:.16em;
-  color:var(--sage);
+  color:var(--green-text);
   text-transform:uppercase;
   margin-top:6px
 }
@@ -2273,7 +2272,7 @@ h1.hero-title em
   place-items:center;
   background:rgba(236,238,237,.04);
   border:1px solid var(--line);
-  color:var(--sage-light);
+  color:var(--green-text);
   flex:none;
   transition:background .4s,color .4s
 }
@@ -2389,7 +2388,7 @@ h1.hero-title em
 .fld select:focus
 {
   outline:none;
-  border-color:var(--sage)
+  border-color:var(--green-text)
 }
 
 .fld select option
@@ -2445,7 +2444,7 @@ footer
 
 .foot-cta .big a:hover
 {
-  color:var(--sage)
+  color:var(--green-text)
 }
 
 .foot-top
@@ -2490,7 +2489,7 @@ footer
 {
   font-family:var(--display);
   font-size:14px;
-  color:var(--sage);
+  color:var(--green-text);
   margin-top:18px
 }
 
@@ -2779,11 +2778,8 @@ footer
 
 /* ============================================================
    REFINO VISUAL — SEÇÕES INTERMEDIÁRIAS
-   Mantém o fundo #1D1D1B, mas melhora profundidade,
-   hierarquia, cards, números, cases, depoimentos e certificações.
    ============================================================ */
 
-/* ---------- Ajuste geral das seções ---------- */
 .section{
   padding:clamp(105px, 14vh, 185px) 0;
 }
@@ -2814,7 +2810,7 @@ footer{
   background:#1D1D1B !important;
 }
 
-/* ---------- Títulos com descendentes sem corte ---------- */
+/* Títulos com descendentes sem corte */
 h1.hero-title{
   line-height:1.16;
 }
@@ -2834,15 +2830,16 @@ h1.hero-title{
 .rotor-wrap{
   line-height:1.16;
   padding-bottom:.08em;
-  color:green;
-  font-style: bold-italic;
+  color:var(--green-text);
+  font-style:italic;
+  font-weight:700;
 }
 
 h1.hero-title em{
   line-height:1.16;
 }
 
-/* ---------- Seção de números ---------- */
+/* Seção de números */
 .stats-wrap{
   position:relative;
   overflow:hidden;
@@ -2856,7 +2853,7 @@ h1.hero-title em{
   width:min(760px, 70vw);
   height:min(760px, 70vw);
   transform:translateX(-50%);
-  background:radial-gradient(circle, rgba(229,230,231,.045), transparent 68%);
+  background:radial-gradient(circle, rgba(46,138,116,.06), transparent 68%);
   pointer-events:none;
 }
 
@@ -2913,7 +2910,7 @@ h1.hero-title em{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(229,230,231,.075), transparent 48%),
+    radial-gradient(circle at 50% 0%, rgba(46,138,116,.10), transparent 48%),
     linear-gradient(180deg, rgba(255,255,255,.035), transparent 65%);
   opacity:.55;
   transition:opacity .45s var(--ease), transform .45s var(--ease);
@@ -2927,8 +2924,8 @@ h1.hero-title em{
   width:34%;
   height:1px;
   transform:translateX(-50%);
-  background:rgba(229,230,231,.26);
-  opacity:.45;
+  background:var(--green-line);
+  opacity:.55;
 }
 
 .stat:hover::before{
@@ -2946,7 +2943,7 @@ h1.hero-title em{
 }
 
 .stat .n .u{
-  color:var(--gray-light);
+  color:var(--green-text);
   font-size:.45em;
   vertical-align:super;
   margin-left:4px;
@@ -2961,7 +2958,7 @@ h1.hero-title em{
   text-transform:uppercase;
 }
 
-/* ---------- Cases ---------- */
+/* Cases */
 .cases-head{
   align-items:start;
   margin-bottom:clamp(54px, 7vw, 86px);
@@ -3028,7 +3025,7 @@ h1.hero-title em{
   z-index:1;
   background:
     linear-gradient(180deg, rgba(29,29,27,.04), rgba(29,29,27,.16)),
-    radial-gradient(circle at 50% 0%, rgba(229,230,231,.08), transparent 60%);
+    radial-gradient(circle at 50% 0%, rgba(46,138,116,.08), transparent 60%);
   pointer-events:none;
 }
 
@@ -3098,7 +3095,7 @@ h1.hero-title em{
 }
 
 .case-handle{
-  color:rgba(229,230,231,.72);
+  color:var(--green-text);
   margin-top:7px;
 }
 
@@ -3111,7 +3108,7 @@ h1.hero-title em{
   letter-spacing:.18em;
 }
 
-/* ---------- Depoimentos ---------- */
+/* Depoimentos */
 .dep-head{
   margin-bottom:clamp(48px, 6vw, 78px);
 }
@@ -3143,15 +3140,15 @@ h1.hero-title em{
 }
 
 .dep::before{
-  content:"“";
+  content:"\201C";
   position:absolute;
   top:10px;
   right:34px;
   font-family:Georgia,serif;
   font-size:160px;
   line-height:1;
-  color:rgba(14,53,45,.58);
-  opacity:.55;
+  color:var(--green-line);
+  opacity:.6;
 }
 
 .dep::after{
@@ -3161,7 +3158,7 @@ h1.hero-title em{
   top:0;
   width:72px;
   height:2px;
-  background:rgba(229,230,231,.34);
+  background:var(--green-text);
 }
 
 .dep-quote{
@@ -3195,11 +3192,11 @@ h1.hero-title em{
 }
 
 .dep-who .rl{
-  color:rgba(229,230,231,.62);
+  color:var(--green-text);
   letter-spacing:.04em;
 }
 
-/* ---------- Certificações ---------- */
+/* Certificações */
 .cert-head{
   align-items:start;
   margin-bottom:clamp(48px, 6vw, 78px);
@@ -3250,7 +3247,7 @@ h1.hero-title em{
   gap:22px;
   border-bottom:1px solid rgba(229,230,231,.13);
   background:
-    radial-gradient(circle at 12% 20%, rgba(229,230,231,.08), transparent 34%);
+    radial-gradient(circle at 12% 20%, rgba(46,138,116,.10), transparent 34%);
 }
 
 .cert-top::after{
@@ -3260,7 +3257,7 @@ h1.hero-title em{
   bottom:-1px;
   width:86px;
   height:1px;
-  background:rgba(229,230,231,.42);
+  background:var(--green-text);
 }
 
 .cert-logo{
@@ -3308,16 +3305,17 @@ h1.hero-title em{
 }
 
 .cert:hover .cert-skills .sk{
-  border-color:rgba(229,230,231,.28);
+  border-color:var(--green-line);
 }
 
 .cert-skills .sk:hover{
-  background:var(--off);
-  color:var(--black);
+  background:var(--green);
+  color:var(--off);
+  border-color:var(--green);
   transform:translateY(-2px);
 }
 
-/* ---------- Responsivo das seções refinadas ---------- */
+/* Responsivo das seções refinadas */
 @media (max-width:860px){
   .stats-grid,
   .cases-grid,
