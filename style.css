@@ -6,47 +6,69 @@ Tipografia: Tenor Sans (display) · Inter (corpo)
 ============================================================ */
 :root {
 
-  /* —— Cores principais —— */
-  --black:        #1D1D1B;
+  /* ============================================================
+  PALETA OFICIAL
+  Preto:     #1D1D1B — base predominante
+  Off-white: #E5E6E7 — contraste principal
+  Cinza:     #A6A8AA — textos secundários e apoio
+  Verde:     #0E352D — assinatura discreta
+  ============================================================ */
 
-  /* Primária */
-  --black-pure:   #000000;
-  --ink:          #1D1D1B;
-  --off:          #E5E6E7;
+  /* Cores principais */
+  --black: #1D1D1B;
+  --black-pure: #000000;
+  --off: #E5E6E7;
+  --gray: #A6A8AA;
+  --green: #0E352D;
 
-  /* Secundária */
-  --off-dim:      #B9BBBD;
+  /* Superfícies escuras */
+  --ink: #1D1D1B;
+  --black-deep: #151514;
+  --black-soft: #242421;
+  --black-card: #2A2A28;
+  --charcoal: #252523;
+  --charcoal-2: #2F2F2C;
+  --graphite: #3A3A37;
 
-  /* —— Variações neutras para profundidade —— */
-  --charcoal:     #252523;
-  --charcoal-2:   #2F2F2C;
-  --graphite:     #3A3A37;
-  --gray:         #9B9D9E;
-  --gray-dim:     #6F7172;
-  --label:        #858789;
+  /* Off-white em níveis */
+  --off-dim: rgba(229,230,231,.76);
+  --off-muted: rgba(229,230,231,.58);
+  --off-soft: rgba(229,230,231,.12);
 
-  /* Mantive os nomes antigos para não quebrar o restante do CSS,
-  mas agora todos apontam para a paleta preto + off-white. */
-  --green:        #252523;
-  --green-deep:   #1D1D1B;
-  --green-line:   rgba(229,230,231,.22);
-  --green-glow:   rgba(229,230,231,.09);
-  --sage:         #E5E6E7;
-  --sage-light:   #D3D5D6;
-  --sage-soft:    #B9BBBD;
-  --silver:       #E5E6E7;
-  --silver-2:     #A6A8AA;
-  --line:         rgba(229,230,231,.12);
-  --line-soft:    rgba(229,230,231,.065);
-  --line-strong:  rgba(229,230,231,.22);
+  /* Cinza em níveis */
+  --gray-light: #BFC1C2;
+  --gray-dim: rgba(166,168,170,.68);
+  --gray-soft: rgba(166,168,170,.18);
+  --label: rgba(166,168,170,.72);
 
-  /* tipografia */
+  /* Verde discreto */
+  --green-deep: #08251F;
+  --green-soft: rgba(14,53,45,.72);
+  --green-line: rgba(14,53,45,.70);
+  --green-glow: rgba(14,53,45,.30);
+  --green-wash: rgba(14,53,45,.16);
+
+  /* Compatibilidade com nomes antigos do CSS */
+  --sage: #E5E6E7;
+  --sage-light: #D8D9DA;
+  --sage-soft: #A6A8AA;
+  --silver: #E5E6E7;
+  --silver-2: #A6A8AA;
+
+  /* Linhas e bordas */
+  --line: rgba(229,230,231,.13);
+  --line-soft: rgba(229,230,231,.07);
+  --line-strong: rgba(229,230,231,.24);
+
+  /* Tipografia */
   --display: 'Tenor Sans', Georgia, 'Times New Roman', serif;
   --body: 'Inter', system-ui, sans-serif;
 
-  /* layout */
+  /* Layout */
   --maxw: 1280px;
   --gutter: clamp(22px, 5.5vw, 96px);
+
+  /* Movimento */
   --ease: cubic-bezier(.19,1,.22,1);
   --ease-soft: cubic-bezier(.33,1,.68,1);
 }
@@ -472,7 +494,7 @@ nav
 nav.scrolled
 {
   padding:14px 0;
-  background:rgba(29,29,27,.82);
+  background:rgba(29,29,27,.86);
   backdrop-filter:blur(18px) saturate(1.3);
   -webkit-backdrop-filter:blur(18px) saturate(1.3);
   border-bottom:1px solid var(--line-soft);
@@ -721,14 +743,13 @@ nav.scrolled
   overflow:hidden;
 }
 
-.hero-bg
-{
+.hero-bg{
   position:absolute;
   inset:0;
   z-index:0;
   background:
-    radial-gradient(130% 90% at 85% 12%, rgba(229,230,231,.08) 0%, transparent 52%),
-    radial-gradient(100% 80% at 5% 95%, rgba(229,230,231,.055) 0%, transparent 50%),
+    radial-gradient(130% 90% at 85% 12%, rgba(229,230,231,.055) 0%, transparent 52%),
+    radial-gradient(100% 80% at 5% 95%, rgba(166,168,170,.045) 0%, transparent 50%),
     var(--black);
 }
 
@@ -746,24 +767,22 @@ nav.scrolled
 }
 
 /* símbolo gigante que faz parallax */
-.hero-sym
-{
+.hero-sym{
   position:absolute;
   right:-8%;
   top:46%;
   z-index:0;
   width:min(64vw,780px);
-  color:var(--green);
-  opacity:.5;
+  color:var(--black-pure);
+  opacity:.18;
   transform:translateY(-50%);
   will-change:transform;
 }
 
-.hero-sym svg
-{
+.hero-sym svg{
   width:100%;
   height:auto;
-  filter:drop-shadow(0 0 60px rgba(229,230,231,.16))
+  filter:drop-shadow(0 0 60px rgba(0,0,0,.22));
 }
 
 .hero-inner
@@ -803,25 +822,25 @@ nav.scrolled
   width:7px;
   height:7px;
   border-radius:50%;
-  background:var(--sage);
-  box-shadow:0 0 0 0 rgba(229,230,231,.28);
-  animation:pulse 2.8s infinite
+  background:var(--green);
+  box-shadow:0 0 0 0 rgba(14,53,45,.42);
+  animation:pulse 2.8s infinite;
 }
 
 @keyframes pulse {
   0%
   {
-    box-shadow:0 0 0 0 rgba(229,230,231,.26)
+    box-shadow:0 0 0 0 rgba(14,53,45,.42);
   }
 
   70%
   {
-    box-shadow:0 0 0 10px rgba(229,230,231,0)
+    box-shadow:0 0 0 10px rgba(14,53,45,0);
   }
 
   100%
   {
-    box-shadow:0 0 0 0 rgba(229,230,231,0)
+    box-shadow:0 0 0 0 rgba(14,53,45,0);
   }
 
 }
@@ -942,7 +961,9 @@ h1.hero-title em
 
 .hero-card{
   position:relative;
-  background:linear-gradient(165deg, #2A2A28, #1D1D1B);
+  background:
+    radial-gradient(circle at 86% 12%, rgba(229,230,231,.075), transparent 42%),
+    linear-gradient(165deg, var(--black-card), var(--black));
   border:1px solid var(--line-strong);
   border-radius:18px;
   padding:26px;
@@ -950,7 +971,8 @@ h1.hero-title em
   box-shadow:0 30px 80px rgba(0,0,0,.5);
 }
 
-.hc-sym{
+.hc-sym
+{
   position:absolute;
   right:-30%;
   bottom:-25%;
@@ -960,7 +982,8 @@ h1.hero-title em
   z-index:0;
 }
 
-.hc-sym svg{
+.hc-sym svg
+{
   width:100%;
   height:auto;
   filter:
@@ -974,7 +997,7 @@ h1.hero-title em
   right:-20%;
   width:70%;
   height:70%;
-  background:radial-gradient(circle, rgba(229,230,231,.06), transparent 70%);
+  background:radial-gradient(circle, rgba(229,230,231,.055), transparent 70%);
   z-index:0;
 }
 
@@ -1008,8 +1031,8 @@ h1.hero-title em
   width:7px;
   height:7px;
   border-radius:50%;
-  background:var(--sage);
-  animation:pulse 2.8s infinite
+  background:var(--green);
+  animation:pulse 2.8s infinite;
 }
 
 .hc-handle
@@ -1042,9 +1065,9 @@ h1.hero-title em
   flex:none;
   display:grid;
   place-items:center;
-  background:#E5E6E7;
+  background:var(--off);
   border:1px solid rgba(229,230,231,.35);
-  color:#1D1D1B;
+  color:var(--black);
   box-shadow:0 6px 18px rgba(0,0,0,.18);
 }
 
@@ -1052,7 +1075,7 @@ h1.hero-title em
 {
   width:21px;
   height:21px;
-  color:#1D1D1B;
+  color:var(--black);
 }
 
 .hc-step-tx
@@ -1156,10 +1179,10 @@ h1.hero-title em
   content:"";
   position:absolute;
   inset:0;
-  background:var(--silver-2);
+  background:var(--gray);
   transform:translateY(101%);
   transition:transform .5s var(--ease);
-  z-index:1
+  z-index:1;
 }
 
 .btn-primary:hover
@@ -1192,7 +1215,7 @@ h1.hero-title em
   transform:translateY(101%);
   transition:transform .5s var(--ease);
   z-index:1;
-  border-radius:100px
+  border-radius:100px;
 }
 
 .btn-ghost:hover
@@ -1423,7 +1446,7 @@ h1.hero-title em
   top:0;
   bottom:0;
   width:0;
-  background:linear-gradient(90deg,var(--green-glow),transparent);
+  background:linear-gradient(90deg, var(--green-wash), transparent);
   transition:width .5s var(--ease);
   z-index:0;
 }
@@ -1762,8 +1785,8 @@ h1.hero-title em
 
 .case:hover .case-go
 {
-  background:var(--off);
-  color:var(--black)
+  background:var(--green);
+  color:var(--off);
 }
 
 .case:hover .case-go svg
@@ -1904,7 +1927,7 @@ h1.hero-title em
   border:1px solid var(--green-line);
   font-family:var(--display);
   font-size:17px;
-  color:var(--sage-light)
+  color:var(--off);
 }
 
 .dep-av img
@@ -1944,7 +1967,9 @@ h1.hero-title em
   position:relative;
   text-align:center;
   overflow:hidden;
-  background:var(--green)
+  background:
+    radial-gradient(circle at 50% 0%, var(--green-glow), transparent 55%),
+    var(--black);
 }
 
 .manifesto-sym
@@ -1954,9 +1979,9 @@ h1.hero-title em
   top:50%;
   transform:translate(-50%,-50%);
   width:min(80vw,800px);
-  color:var(--green-deep);
-  opacity:.5;
-  z-index:0
+  color:var(--green);
+  opacity:.18;
+  z-index:0;
 }
 
 .manifesto .wrap
@@ -2125,7 +2150,9 @@ h1.hero-title em
   border-radius:4px;
   overflow:hidden;
   aspect-ratio:4/4.6;
-  background:linear-gradient(160deg,var(--green),var(--green-deep))
+  background:
+    radial-gradient(circle at 70% 20%, var(--green-glow), transparent 42%),
+    linear-gradient(160deg, var(--black-card), var(--black));
 }
 
 .member-media img
@@ -2211,7 +2238,9 @@ h1.hero-title em
 {
   position:relative;
   overflow:hidden;
-  background:var(--green-deep)
+  background:
+    radial-gradient(circle at 88% 18%, var(--green-glow), transparent 46%),
+    var(--black-deep);
 }
 
 .contact-sym
@@ -2221,8 +2250,8 @@ h1.hero-title em
   bottom:-20%;
   width:min(50vw,560px);
   color:var(--green);
-  opacity:.4;
-  z-index:0
+  opacity:.22;
+  z-index:0;
 }
 
 .contact .wrap
@@ -2291,8 +2320,8 @@ h1.hero-title em
 
 .contact-info a:hover .ic
 {
-  background:var(--off);
-  color:var(--black)
+  background:var(--green);
+  color:var(--off);
 }
 
 .contact-info .tx
@@ -2321,7 +2350,7 @@ h1.hero-title em
   border:1px solid var(--line);
   border-radius:6px;
   padding:clamp(30px,3.6vw,44px);
-  background:rgba(29,29,27,.52);
+  background:rgba(29,29,27,.62);
   backdrop-filter:blur(10px)
 }
 
