@@ -1,11 +1,12 @@
+
 /* ============================================================
-   VZ CONNECT — Scripts v2
+   VZ CONNECT — Scripts v3 (navegação nativa, sem Lenis)
    ============================================================ */
 (function () {
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isTouch = window.matchMedia('(max-width: 900px)').matches;
-
+ 
   /* ---------- LOADER ---------- */
   var loader = document.getElementById('loader');
   var lbar = document.getElementById('l-bar');
@@ -16,7 +17,7 @@
     if (prog >= 100) { prog = 100; clearInterval(li); }
     if (lbar) lbar.style.width = prog + '%';
   }, 130);
-
+ 
   function finishLoader() {
     if (loaderDone) return;
     loaderDone = true;
@@ -37,7 +38,7 @@
   document.addEventListener('DOMContentLoaded', function () { setTimeout(finishLoader, 1400); });
   // rede de segurança final: nunca deixa o usuário preso
   setTimeout(finishLoader, 3500);
-
+ 
   /* ---------- MARQUEE (duplica para loop perfeito) ---------- */
   var marquee = document.getElementById('marquee');
   if (marquee) {
@@ -46,24 +47,20 @@
     var block = '<div class="marquee-item">' + items.map(function (t) { return t + ' ' + star; }).join(' ') + '</div>';
     marquee.innerHTML = block + block;
   }
-
-  /* ---------- SMOOTH SCROLL (Lenis) ---------- */
-  // var lenis = null;
-  // function initLenis() {
-  //   if (reduced) return;
-  //   if (typeof Lenis === 'undefined') {
-  //     // script com defer pode ainda não ter carregado; tenta de novo em breve
-  //     if (initLenis._tries === undefined) initLenis._tries = 0;
-  //     if (initLenis._tries++ < 20) { setTimeout(initLenis, 150); }
-  //     return;
-  //   }
-  //   lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
-  //   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-  //   requestAnimationFrame(raf);
-  //   document.documentElement.classList.add('lenis');
-  // }
-
-  /* ---------- ÂNCORAS suaves ---------- */
+ 
+  /* ---------- MENU MOBILE ---------- */
+  var menu = document.getElementById('menu');
+  var toggle = document.getElementById('nav-toggle');
+  var menuOpen = false;
+  function closeMenu() { if (menu) menu.classList.remove('open'); menuOpen = false; }
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      menuOpen = !menuOpen;
+      menu.classList.toggle('open', menuOpen);
+    });
+  }
+ 
+  /* ---------- ÂNCORAS suaves (scroll nativo do navegador) ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
@@ -72,24 +69,10 @@
       if (!el) return;
       e.preventDefault();
       closeMenu();
-      if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.3 });
-      else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+      el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     });
   });
-
-  /* ---------- NAV scroll state ---------- */
-  var nav = document.getElementById('nav');
-  function onScroll() {
-    var y = window.scrollY;
-    if (nav) nav.classList.toggle('scrolled', y > 40);
-    // parallax
-    parallaxEls.forEach(function (p) {
-      var rect = p.el.getBoundingClientRect();
-      var center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      p.el.style.transform = p.base + ' translate3d(0,' + (-center * p.speed) + 'px,0)';
-    });
-  }
-
+ 
   /* ---------- PARALLAX ---------- */
   var parallaxEls = [];
   if (!reduced && !isTouch) {
@@ -101,9 +84,20 @@
       parallaxEls.push({ el: el, speed: speed, base: base });
     });
   }
-
+ 
+  /* ---------- NAV scroll state + parallax ---------- */
+  var nav = document.getElementById('nav');
+  function onScroll() {
+    var y = window.scrollY;
+    if (nav) nav.classList.toggle('scrolled', y > 40);
+    parallaxEls.forEach(function (p) {
+      var rect = p.el.getBoundingClientRect();
+      var center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      p.el.style.transform = p.base + ' translate3d(0,' + (-center * p.speed) + 'px,0)';
+    });
+  }
   window.addEventListener('scroll', onScroll, { passive: true });
-
+ 
   /* ---------- REVEAL (IntersectionObserver) ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduced) {
@@ -111,7 +105,6 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) {
           e.target.classList.add('in');
-          // contadores dentro deste bloco
           e.target.querySelectorAll('.count').forEach(animateCount);
           io.unobserve(e.target);
         }
@@ -121,7 +114,7 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); el.querySelectorAll('.count').forEach(function (c) { c.textContent = (c.getAttribute('data-prefix') || '') + c.getAttribute('data-to'); }); });
   }
-
+ 
   /* ---------- CONTADOR ANIMADO ---------- */
   function animateCount(el) {
     if (el.dataset.done) return; el.dataset.done = '1';
@@ -138,24 +131,11 @@
     }
     requestAnimationFrame(step);
   }
-
-  /* ---------- MENU MOBILE ---------- */
-  var menu = document.getElementById('menu');
-  var toggle = document.getElementById('nav-toggle');
-  var menuOpen = false;
-  function closeMenu() { if (menu) menu.classList.remove('open'); menuOpen = false; }
-  if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      menuOpen = !menuOpen;
-      menu.classList.toggle('open', menuOpen);
-    });
-  }
-
-
+ 
   /* ---------- FORM → FORMSPREE ---------- */
   var contactForm = document.getElementById('contact-form');
   var formStatus = document.getElementById('form-status');
-
+ 
   // Phone: allow only digits, spaces, +, (, ), -
   var telInput = document.getElementById('f-tel');
   if (telInput) {
@@ -166,7 +146,7 @@
       if (!/[\d\s\+\(\)\-]/.test(e.key)) e.preventDefault();
     });
   }
-
+ 
   if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -195,7 +175,7 @@
       }
     });
   }
-
+ 
   /* ---------- ROTOR (palavra rotativa do hero) ---------- */
   var rotor = document.getElementById('rotor');
   if (rotor && !reduced) {
@@ -210,8 +190,8 @@
       }, 400);
     }, 2600);
   }
-
+ 
   /* ---------- INIT ---------- */
-  initLenis();
   onScroll();
 })();
+ 

@@ -82,11 +82,16 @@ html
 {
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  scroll-behavior:smooth;
+  scroll-padding-top:96px;
 }
 
-html.lenis
+@media (prefers-reduced-motion:reduce)
 {
-  height:auto
+  html
+  {
+    scroll-behavior:auto
+  }
 }
 
 body{
