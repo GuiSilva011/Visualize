@@ -516,24 +516,12 @@ nav.scrolled{
   gap:13px
 }
 
-.nav-brand .sym
+.nav-brand .brand-logo
 {
-  width:28px;
-  color:var(--silver);
-  transition:transform .6s var(--ease)
-}
-
-.nav-brand:hover .sym
-{
-  transform:rotate(-8deg) scale(1.08)
-}
-
-.nav-brand .name
-{
-  font-family:var(--display);
-  font-size:17px;
-  letter-spacing:.2em;
-  color:var(--off)
+  height:26px;
+  width:auto;
+  display:block;
+  filter:invert(1) brightness(.9)
 }
 
 .nav-center
@@ -634,6 +622,38 @@ nav.scrolled{
 .nav-cta:hover .arr
 {
   transform:translate(3px,-3px)
+}
+
+.nav-right
+{
+  display:flex;
+  align-items:center;
+  gap:20px
+}
+
+.nav-social
+{
+  display:flex;
+  align-items:center;
+  gap:14px
+}
+
+.nav-social a
+{
+  color:var(--off-muted);
+  transition:color .35s var(--ease)
+}
+
+.nav-social a:hover
+{
+  color:var(--off)
+}
+
+.nav-social a svg
+{
+  width:18px;
+  height:18px;
+  display:block
 }
 
 .nav-toggle
@@ -2469,18 +2489,12 @@ footer
   margin-bottom:20px
 }
 
-.foot-brand .logo .sym
+.foot-brand .logo .brand-logo
 {
-  width:30px;
-  color:var(--silver)
-}
-
-.foot-brand .logo .name
-{
-  font-family:var(--display);
-  font-size:18px;
-  letter-spacing:.18em;
-  color:var(--off)
+  height:28px;
+  width:auto;
+  display:block;
+  filter:invert(1) brightness(.9)
 }
 
 .foot-brand p
@@ -2718,7 +2732,8 @@ footer
 @media (max-width:860px)
 {
   .nav-center,
-  .nav-cta
+  .nav-cta,
+  .nav-social
   {
     display:none
   }

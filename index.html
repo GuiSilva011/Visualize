@@ -18,24 +18,20 @@
 </head>
 <body>
 
-<!-- símbolo SVG reutilizável via <use> -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="vzsym" viewBox="0 0 1123 652"><g transform="translate(0,652) scale(0.1,-0.1)" fill="currentColor"><path d="M7040 6477 c0 -2 141 -131 314 -287 173 -157 315 -287 315 -290 -1 -3 -29 -30 -63 -60 -34 -30 -779 -707 -1656 -1505 -877 -797 -1646 -1497 -1709 -1554 -64 -58 -339 -308 -611 -556 -272 -248 -747 -680 -1055 -960 l-560 -509 -3 1505 -2 1506 -329 149 -329 149 1082 3 1081 2 421 383 c231 210 468 425 525 477 57 52 295 268 528 480 l423 385 -1922 3 -1921 2 -765 -695 -764 -696 0 -2189 0 -2190 2055 0 2054 0 173 158 c96 86 396 360 668 607 272 248 621 565 775 705 272 246 3230 2937 4365 3970 305 277 671 610 813 739 141 128 257 237 257 240 0 31 -26 31 -2092 31 -1137 0 -2068 -1 -2068 -3z"/></g></symbol>
 </svg>
 
-<!-- LOADER -->
 <div class="loader" id="loader">
   <svg class="l-sym" viewBox="0 0 1123 652"><use href="#vzsym"/></svg>
   <div class="l-bar" id="l-bar"></div>
 </div>
 
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-brand" data-cursor>
-      <svg class="sym" viewBox="0 0 1123 652"><use href="#vzsym"/></svg>
-      <span class="name">VZ CONNECT</span>
+      <img class="brand-logo" src="img/vz-logo-horizontal-web.png" alt="VZ CONNECT">
     </a>
     <div class="nav-center">
       <a href="#servicos" data-cursor>Serviços</a>
@@ -43,17 +39,22 @@
       <a href="#certificacoes" data-cursor>Certificações</a>
       <a href="#equipe" data-cursor>Quem somos</a>
     </div>
-    <a href="#contato" class="nav-cta" data-cursor>
-      <span>Fale conosco</span>
-      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="26" height="26"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-    </button>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.instagram.com/visualize_com" target="_blank" rel="noopener" data-cursor aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.linkedin.com/company/vz-connect/" target="_blank" rel="noopener" data-cursor aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 0 1 4 0v3M12 11v5"/></svg></a>
+      </div>
+      <a href="#contato" class="nav-cta" data-cursor>
+        <span>Fale conosco</span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="26" height="26"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- MENU MOBILE -->
 <div class="menu-overlay" id="menu">
   <a href="#servicos">Serviços</a>
   <a href="#cases">Cases</a>
@@ -66,7 +67,6 @@
   </div>
 </div>
 
-<!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="hero-noise-grid"></div>
@@ -133,14 +133,11 @@
   <div class="scroll-hint"><span>Scroll</span><span class="bar"></span></div>
 </header>
 
-<!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track" id="marquee">
-    <!-- preenchido via JS para loop perfeito -->
   </div>
 </div>
 
-<!-- INTRO / MANIFESTO CURTO -->
 <section class="section bg-black intro reveal">
   <div class="wrap">
     <div class="intro-grid">
@@ -164,7 +161,6 @@
   </div>
 </section>
 
-<!-- SERVIÇOS -->
 <section class="section bg-black" id="servicos">
   <div class="wrap">
     <div class="svc-head reveal">
@@ -216,7 +212,6 @@
   </div>
 </section>
 
-<!-- NÚMEROS -->
 <section class="section bg-ink stats-wrap">
   <div class="wrap">
     <div class="stats-head reveal">
@@ -234,7 +229,6 @@
   </div>
 </section>
 
-<!-- CASES -->
 <section class="section bg-black" id="cases">
   <div class="wrap">
     <div class="cases-head reveal">
@@ -265,7 +259,6 @@
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
 <section class="section bg-deep" id="depoimentos">
   <div class="wrap">
     <div class="dep-head reveal">
@@ -285,7 +278,6 @@
   </div>
 </section>
 
-<!-- MANIFESTO -->
 <section class="section manifesto reveal">
   <div class="manifesto-sym" data-parallax="0.1"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></div>
   <div class="wrap">
@@ -297,7 +289,6 @@
   </div>
 </section>
 
-<!-- CERTIFICAÇÕES -->
 <section class="section bg-black" id="certificacoes">
   <div class="wrap">
     <div class="cert-head reveal">
@@ -326,7 +317,6 @@
   </div>
 </section>
 
-<!-- EQUIPE -->
 <section class="section bg-ink" id="equipe">
   <div class="wrap">
     <div class="team-head reveal">
@@ -355,7 +345,6 @@
   </div>
 </section>
 
-<!-- CONTATO -->
 <section class="section contact" id="contato">
   <div class="contact-sym" data-parallax="0.12"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></div>
   <div class="wrap">
@@ -406,7 +395,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-cta reveal">
@@ -418,7 +406,7 @@
     </div>
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo"><svg class="sym" viewBox="0 0 1123 652"><use href="#vzsym"/></svg><span class="name">VZ CONNECT</span></div>
+        <div class="logo"><img class="brand-logo" src="img/vz-logo-horizontal-web.png" alt="VZ CONNECT"></div>
         <p>Agência de comunicação estratégica em Vila Velha, ES. Tratamos sua marca como um ativo — não como um mural de posts.</p>
         <div class="tag">Comunicação com propósito. Resultado de verdade.</div>
       </div>
@@ -452,7 +440,6 @@
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20VZ%20CONNECT." target="_blank" rel="noopener" class="wa" data-cursor aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.21-3.66-.77-3.08-1.21-5.05-4.32-5.2-4.52-.15-.2-1.24-1.65-1.24-3.15 0-1.5.79-2.24 1.07-2.54.28-.31.61-.38.81-.38.2 0 .41 0 .58.01.19.01.43-.07.68.52.24.59.83 2.03.9 2.18.07.15.12.33.02.53-.1.2-.15.33-.29.5-.15.18-.31.39-.44.53-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.64-.08.17-.2.74-.86.94-1.16.2-.3.39-.25.66-.15.27.1 1.71.81 2 .96.3.15.49.22.56.34.07.13.07.73-.17 1.41z"/></svg>
 </a>
