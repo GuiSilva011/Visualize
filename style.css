@@ -1,14 +1,14 @@
 :root {
   /* ============================================================
      VZ CONNECT — Preto dominante
-     Preto:     #1D1D1B — base visual / fundo principal
-     Off-white: #E5E6E7 — textos principais e botões
-     Cinza:     #A6A8AA — textos secundários e bordas
-     Verde:     #0E352D — cor de DESTAQUE (texto e elementos)
+     Preto:      #0a0a0a — base visual / fundo principal (atualizado para fosco)
+     Off-white:  #E5E6E7 — textos principais e botões
+     Cinza:      #A6A8AA — textos secundários e bordas
+     Verde:      #0E352D — cor de DESTAQUE (texto e elementos)
      ============================================================ */
 
   /* Cores principais */
-  --black: #1D1D1B;
+  --black: #0a0a0a;
   --black-pure: #000000;
   --off: #E5E6E7;
   --gray: #A6A8AA;
@@ -19,13 +19,13 @@
   --green-text-soft: #267A66;
 
   /* Superfícies escuras */
-  --ink: #1D1D1B;
-  --black-deep: #111110;
-  --black-soft: #191918;
+  --ink: #070706;
+  --black-deep: #050505;
+  --black-soft: #050505;
   --black-card: #20201E;
-  --charcoal: #232321;
-  --charcoal-2: #2A2A28;
-  --graphite: #333330;
+  --charcoal: #0a0a09;
+  --charcoal-2: #0c0c0b;
+  --graphite: #030303;
 
   /* Off-white */
   --off-dim: rgba(229,230,231,.82);
@@ -96,7 +96,7 @@ html
 
 body{
   font-family:var(--body);
-  background:#1D1D1B;
+  background:var(--black);
   color:var(--off);
   line-height:1.6;
   overflow-x:clip;
@@ -479,23 +479,30 @@ body::after
 }
 
 /* ============ NAV ============ */
-nav
-{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:100;
-  padding:26px 0;
-  transition:padding .5s var(--ease),background .5s var(--ease),backdrop-filter .5s;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 26px 0;
+  transition: padding .5s var(--ease), background .5s var(--ease), backdrop-filter .5s, border-color .5s, box-shadow .5s;
 }
 
 nav.scrolled{
   padding:14px 0;
-  background:rgba(17,17,16,.92);
+  background:rgba(10,10,10,.92);
   backdrop-filter:blur(18px) saturate(1.1);
   -webkit-backdrop-filter:blur(18px) saturate(1.1);
   border-bottom:1px solid var(--line-soft);
+}
+
+nav:hover {
+  background: rgba(22, 22, 22, 0.95); 
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  border-bottom: 1px solid rgba(229, 230, 231, 0.15); 
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); 
 }
 
 .nav-inner
@@ -765,16 +772,14 @@ nav.scrolled{
   position:absolute;
   inset:0;
   z-index:0;
-  background:
-    linear-gradient(180deg, rgba(29,29,27,.98), rgba(17,17,16,.98)),
-    var(--black);
+  background:var(--ink);
 }
 
 .hero-noise-grid{
   position:absolute;
   inset:0;
   z-index:0;
-  opacity:.38;
+  opacity:.16;
   pointer-events:none;
   background-image:
     linear-gradient(rgba(229,230,231,.045) 1px, transparent 1px),
@@ -974,7 +979,7 @@ h1.hero-title em
 .hero-card{
   position:relative;
   background:
-    linear-gradient(165deg, #232321 0%, #171716 58%, #111110 100%);
+    linear-gradient(165deg, #232321 0%, #171716 58%, var(--black) 100%);
   border:1px solid rgba(229,230,231,.28);
   border-radius:18px;
   padding:26px;
@@ -1737,7 +1742,7 @@ h1.hero-title em
 {
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(29,29,27,.88),transparent 55%);
+  background:linear-gradient(to top,rgba(10,10,10,.88),transparent 55%);
   z-index:1
 }
 
@@ -1751,7 +1756,7 @@ h1.hero-title em
   letter-spacing:.16em;
   color:var(--off);
   text-transform:uppercase;
-  background:rgba(29,29,27,.58);
+  background:rgba(10,10,10,.58);
   backdrop-filter:blur(8px);
   border:1px solid var(--line);
   padding:7px 13px;
@@ -1767,7 +1772,7 @@ h1.hero-title em
   width:42px;
   height:42px;
   border-radius:50%;
-  background:rgba(29,29,27,.58);
+  background:rgba(10,10,10,.58);
   backdrop-filter:blur(8px);
   border:1px solid var(--line);
   display:grid;
@@ -2339,7 +2344,7 @@ h1.hero-title em
   border:1px solid rgba(229,230,231,.18);
   border-radius:6px;
   padding:clamp(30px,3.6vw,44px);
-  background:rgba(17,17,16,.84);
+  background:rgba(10,10,10,.84);
   backdrop-filter:blur(10px);
 }
 
@@ -2813,23 +2818,6 @@ footer
   color:rgba(229,230,231,.72);
 }
 
-/* Fundo aprovado */
-html,
-body,
-.hero,
-.hero-bg,
-.section,
-.bg-black,
-.bg-green,
-.bg-deep,
-.bg-ink,
-.intro,
-.stats-wrap,
-.manifesto,
-.contact,
-footer{
-  background:#1D1D1B !important;
-}
 
 /* Títulos com descendentes sem corte */
 h1.hero-title{
@@ -3006,7 +2994,7 @@ h1.hero-title em{
   border:1px solid rgba(229,230,231,.16);
   border-radius:18px;
   overflow:hidden;
-  background:#1D1D1B;
+  background:var(--black);
   box-shadow:
     0 24px 70px rgba(0,0,0,.30),
     inset 0 1px 0 rgba(255,255,255,.035);
@@ -3036,7 +3024,7 @@ h1.hero-title em{
   position:relative;
   overflow:hidden;
   aspect-ratio:16/10.4;
-  background:#111110;
+  background:var(--black);
 }
 
 .case-media::after{
@@ -3045,7 +3033,7 @@ h1.hero-title em{
   inset:0;
   z-index:1;
   background:
-    linear-gradient(180deg, rgba(29,29,27,.04), rgba(29,29,27,.16)),
+    linear-gradient(180deg, rgba(10,10,10,.04), rgba(10,10,10,.16)),
     radial-gradient(circle at 50% 0%, rgba(46,138,116,.08), transparent 60%);
   pointer-events:none;
 }
@@ -3069,8 +3057,8 @@ h1.hero-title em{
   inset:0;
   z-index:2;
   background:
-    linear-gradient(to top, rgba(29,29,27,.94), transparent 58%),
-    linear-gradient(to right, rgba(29,29,27,.18), transparent 48%);
+    linear-gradient(to top, rgba(10,10,10,.94), transparent 58%),
+    linear-gradient(to right, rgba(10,10,10,.18), transparent 48%);
 }
 
 .case-tag{
@@ -3080,7 +3068,7 @@ h1.hero-title em{
   font-size:9px;
   letter-spacing:.18em;
   color:var(--off);
-  background:rgba(29,29,27,.72);
+  background:rgba(10,10,10,.72);
   border:1px solid rgba(229,230,231,.18);
   backdrop-filter:blur(14px);
   padding:8px 14px;
@@ -3092,7 +3080,7 @@ h1.hero-title em{
   z-index:3;
   width:46px;
   height:46px;
-  background:rgba(29,29,27,.72);
+  background:rgba(10,10,10,.72);
   border:1px solid rgba(229,230,231,.18);
   backdrop-filter:blur(14px);
 }
@@ -3152,7 +3140,7 @@ h1.hero-title em{
   padding:clamp(34px, 4vw, 58px);
   background:
     linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
-    #1D1D1B;
+    var(--black);
   box-shadow:
     0 24px 80px rgba(0,0,0,.26),
     inset 0 1px 0 rgba(255,255,255,.04);
@@ -3244,7 +3232,7 @@ h1.hero-title em{
   overflow:hidden;
   background:
     linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
-    #1D1D1B;
+    var(--black);
   box-shadow:
     0 24px 80px rgba(0,0,0,.24),
     inset 0 1px 0 rgba(255,255,255,.04);
