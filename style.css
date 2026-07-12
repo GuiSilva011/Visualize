@@ -83,7 +83,7 @@ html
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
   scroll-behavior:smooth;
-  scroll-padding-top:96px;
+  scroll-padding-top:24px;
 }
 
 @media (prefers-reduced-motion:reduce)
@@ -479,31 +479,19 @@ body::after
 }
 
 /* ============ NAV ============ */
+/* ============ NAV (rola com a página) ============ */
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
   padding: 26px 0;
-  transition: padding .5s var(--ease), background .5s var(--ease), backdrop-filter .5s, border-color .5s, box-shadow .5s;
+  background: transparent;
 }
 
-nav.scrolled{
-  padding:14px 0;
-  background:rgba(10,10,10,.92);
-  backdrop-filter:blur(18px) saturate(1.1);
-  -webkit-backdrop-filter:blur(18px) saturate(1.1);
-  border-bottom:1px solid var(--line-soft);
-}
 
-nav:hover {
-  background: rgba(22, 22, 22, 0.95); 
-  backdrop-filter: blur(18px) saturate(1.1);
-  -webkit-backdrop-filter: blur(18px) saturate(1.1);
-  border-bottom: 1px solid rgba(229, 230, 231, 0.15); 
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); 
-}
+
 
 .nav-inner
 {
@@ -2623,6 +2611,103 @@ footer
     align-items:flex-start
   }
 
+}
+
+
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 94px;                
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, .72);
+  border: 1px solid rgba(229, 230, 231, .18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--off);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .45);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(.92);
+  transition:
+    opacity .5s var(--ease),
+    transform .5s var(--ease),
+    visibility .5s,
+    background .4s var(--ease),
+    color .4s var(--ease),
+    border-color .4s var(--ease);
+}
+
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.to-top:hover {
+  background: var(--off);
+  color: var(--black);
+  border-color: var(--off);
+}
+
+.to-top:hover .tt-arr {
+  transform: translateY(-3px);
+}
+
+.to-top:focus-visible {
+  outline: 2px solid var(--green-text);
+  outline-offset: 3px;
+}
+
+/* anel de progresso de leitura */
+.tt-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.tt-ring circle {
+  fill: none;
+  stroke-width: 2;
+}
+
+.tt-track {
+  stroke: rgba(229, 230, 231, .10);
+}
+
+.tt-prog {
+  stroke: var(--green-text);
+  stroke-linecap: round;
+  stroke-dasharray: 163.36;      /* 2πr, r = 26 */
+  stroke-dashoffset: 163.36;     /* começa vazio */
+  transition: stroke-dashoffset .12s linear, stroke .4s var(--ease);
+}
+
+.to-top:hover .tt-prog {
+  stroke: var(--green);
+}
+
+.tt-arr {
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  transition: transform .45s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .to-top {
+    transform: none;
+    transition: opacity .2s;
+  }
 }
 
 /* ============ WHATSAPP FLOAT ============ */

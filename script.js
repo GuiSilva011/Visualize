@@ -1,12 +1,13 @@
-
 /* ============================================================
-   VZ CONNECT — Scripts v3 (navegação nativa, sem Lenis)
+   VZ CONNECT — Scripts v4
+   Nav rola com a página (sem estado 'scrolled')
+   Botão "voltar ao topo" com anel de progresso de leitura
    ============================================================ */
 (function () {
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isTouch = window.matchMedia('(max-width: 900px)').matches;
- 
+
   /* ---------- LOADER ---------- */
   var loader = document.getElementById('loader');
   var lbar = document.getElementById('l-bar');
@@ -17,7 +18,7 @@
     if (prog >= 100) { prog = 100; clearInterval(li); }
     if (lbar) lbar.style.width = prog + '%';
   }, 130);
- 
+
   function finishLoader() {
     if (loaderDone) return;
     loaderDone = true;
@@ -38,7 +39,7 @@
   document.addEventListener('DOMContentLoaded', function () { setTimeout(finishLoader, 1400); });
   // rede de segurança final: nunca deixa o usuário preso
   setTimeout(finishLoader, 3500);
- 
+
   /* ---------- MARQUEE (duplica para loop perfeito) ---------- */
   var marquee = document.getElementById('marquee');
   if (marquee) {
@@ -47,7 +48,7 @@
     var block = '<div class="marquee-item">' + items.map(function (t) { return t + ' ' + star; }).join(' ') + '</div>';
     marquee.innerHTML = block + block;
   }
- 
+
   /* ---------- MENU MOBILE ---------- */
   var menu = document.getElementById('menu');
   var toggle = document.getElementById('nav-toggle');
@@ -59,7 +60,7 @@
       menu.classList.toggle('open', menuOpen);
     });
   }
- 
+
   /* ---------- ÂNCORAS suaves (scroll nativo do navegador) ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
@@ -72,7 +73,7 @@
       el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     });
   });
- 
+
   /* ---------- PARALLAX ---------- */
   var parallaxEls = [];
   if (!reduced && !isTouch) {
@@ -84,12 +85,31 @@
       parallaxEls.push({ el: el, speed: speed, base: base });
     });
   }
- 
-  /* ---------- NAV scroll state + parallax ---------- */
-  var nav = document.getElementById('nav');
+
+  /* ---------- VOLTAR AO TOPO ---------- */
+  var toTop = document.getElementById('to-top');
+  var ttProg = document.querySelector('.tt-prog');
+  var TT_LEN = 163.36; // circunferência do anel: 2πr, com r = 26
+
+  function updateToTop(y) {
+    if (!toTop) return;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(y / max, 1) : 0;
+    if (ttProg) ttProg.style.strokeDashoffset = TT_LEN * (1 - p);
+    toTop.classList.toggle('show', y > window.innerHeight * 0.7);
+  }
+
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      closeMenu();
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ---------- SCROLL (parallax + botão de topo) ---------- */
   function onScroll() {
     var y = window.scrollY;
-    if (nav) nav.classList.toggle('scrolled', y > 40);
+    updateToTop(y);
     parallaxEls.forEach(function (p) {
       var rect = p.el.getBoundingClientRect();
       var center = rect.top + rect.height / 2 - window.innerHeight / 2;
@@ -97,7 +117,8 @@
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
- 
+  window.addEventListener('resize', onScroll);
+
   /* ---------- REVEAL (IntersectionObserver) ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduced) {
@@ -114,7 +135,7 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); el.querySelectorAll('.count').forEach(function (c) { c.textContent = (c.getAttribute('data-prefix') || '') + c.getAttribute('data-to'); }); });
   }
- 
+
   /* ---------- CONTADOR ANIMADO ---------- */
   function animateCount(el) {
     if (el.dataset.done) return; el.dataset.done = '1';
@@ -131,12 +152,12 @@
     }
     requestAnimationFrame(step);
   }
- 
+
   /* ---------- FORM → FORMSPREE ---------- */
   var contactForm = document.getElementById('contact-form');
   var formStatus = document.getElementById('form-status');
- 
-  // Phone: allow only digits, spaces, +, (, ), -
+
+  // Telefone: só dígitos, espaços, +, (, ), -
   var telInput = document.getElementById('f-tel');
   if (telInput) {
     telInput.addEventListener('input', function () {
@@ -146,7 +167,7 @@
       if (!/[\d\s\+\(\)\-]/.test(e.key)) e.preventDefault();
     });
   }
- 
+
   if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -175,7 +196,7 @@
       }
     });
   }
- 
+
   /* ---------- ROTOR (palavra rotativa do hero) ---------- */
   var rotor = document.getElementById('rotor');
   if (rotor && !reduced) {
@@ -190,8 +211,7 @@
       }, 400);
     }, 2600);
   }
- 
+
   /* ---------- INIT ---------- */
   onScroll();
 })();
- 
