@@ -441,7 +441,7 @@ $('#leadForm').addEventListener('submit', function(e){
   if(Date.now()-loadTs < 3000){ return err('Aguarde um instante e tente novamente.'); }
   if(submitAttempts>=MAX_ATTEMPTS){ return err('Muitas tentativas. Fale com a gente no WhatsApp — atendemos na hora.'); }
   if(!(LEAD_ENDPOINT_URL && LEAD_ENDPOINT_URL.indexOf('__')<0)){
-    console.error('[VZ] LEAD_ENDPOINT_URL não configurada — cole o endpoint do Formspree (https://formspree.io/f/XXXXXXXX).');
+    console.error('[VZ] LEAD_ENDPOINT_URL não configurada — cole o endpoint do Formspree (https://formspree.io/f/mdajawjo).');
     return err('Envio ainda não configurado. Fale com a gente no WhatsApp que atendemos na hora.');
   }
   var payload=collect();

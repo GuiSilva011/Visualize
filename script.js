@@ -56,14 +56,19 @@ const PROOF = [
 ];
 
 /* Conteúdos em destaque.
+   video: arquivo local em vds/ — é o que toca dentro do modal.
    cover: opcional — caminho de uma capa local dentro de img/.
-   Sem cover, o card usa a capa gráfica montada em HTML/CSS. */
+   coverPos: opcional — ajusta a altura do corte da capa no card (padrão 30%, no CSS).
+   Sem cover, o card usa a capa gráfica montada em HTML/CSS.
+   Sem video, o modal volta a usar o embed do Instagram. */
 const FEATURED_CONTENT = [
   {
     client: "Gabriel Zanette",
     category: "Conteúdo orgânico",
     title: "Alerta para quem viaja de ônibus",
     url: "https://www.instagram.com/p/DYUd6KnKkYW/",
+    video: "vds/video5.mp4",
+    cover: "img/capa-gabriel-onibus.jpg",
     featured: true,
     metric: "10,5 milhões de visualizações",
     secondaryMetrics: ["575,7 mil curtidas","13,7 mil comentários","32,2 mil republicações"],
@@ -74,10 +79,12 @@ const FEATURED_CONTENT = [
     category: "Conteúdo de entretenimento",
     title: "Entrada das madrinhas ao som de Arco-Íris",
     url: "https://www.instagram.com/reel/DUqsER1kbfB/",
+    video: "vds/video4.mp4",
+    cover: "img/capa-nonalu-madrinhas.jpg",
     featured: false,
     metric: "2,2 milhões de visualizações",
     secondaryMetrics: ["138 mil curtidas","5.661 comentários"],
-    description: "Projeto realizado anteriormente pela VZ Connect.",
+    description: "Conteúdo de entretenimento desenvolvido para transformar um momento do evento em uma cena marcante, emocionante e altamente compartilhável.",
     previousProject: true
   },
   {
@@ -85,30 +92,37 @@ const FEATURED_CONTENT = [
     category: "Conteúdo jurídico",
     title: "Cuidado com a mala de desconhecidos no aeroporto",
     url: "https://www.instagram.com/reel/DXuqNDFJR8J/",
+    video: "vds/video2.mp4",
+    cover: "img/capa-juliana-mala.jpg",
     featured: false,
     metric: "71,6 mil curtidas",
     secondaryMetrics: ["1.604 comentários","4.201 republicações"],
-    description: "Conteúdo jurídico transformado em uma situação prática e fácil de compartilhar."
+    description: "Conteúdo jurídico criado para traduzir um alerta importante em uma orientação simples, direta e fácil de aplicar durante uma viagem."
   },
   {
     client: "Flynita Viagens",
     category: "Conteúdo educativo",
-    title: "O erro financeiro que brasileiros cometem na Europa",
-    url: "https://www.instagram.com/reel/DZz8p7aB06C/",
+    title: "Como os pickpockets escolhem as vítimas na Europa",
+    url: "https://www.instagram.com/reel/DZirFdRhP49/",
+    video: "vds/video3.mp4",
+    cover: "img/capa-flynita-pickpockets.jpg",
+    coverPos: "55%",   // neste reel a apresentadora fica na metade de baixo; 30% cortaria o rosto
     featured: false,
-    metric: "4.934 curtidas",
-    secondaryMetrics: ["104 comentários","94 republicações"],
-    description: "Conteúdo educativo sobre viagens, feito para informar e fortalecer o posicionamento da marca."
+    metric: "Mais de 2 mil novos seguidores",
+    secondaryMetrics: [],
+    description: "Conteúdo educativo criado para transformar um risco comum em viagens pela Europa em um alerta prático, visual e altamente compartilhável."
   },
   {
     client: "Gabriel Zanette",
     category: "Produção publicitária",
     title: "Conteúdo publicitário para Renault Boreal",
     url: "https://www.instagram.com/p/DVuQMFsDXsn/",
+    video: "vds/video1.mp4",
+    cover: "img/capa-gabriel-renault.jpg",
     featured: false,
     metric: "Projeto publicitário",
     secondaryMetrics: [],
-    description: "Produção publicitária com apresentação de tecnologia, conforto e diferenciais do veículo."
+    description: "Produção publicitária desenvolvida para apresentar o Renault Boreal de forma natural, conectando informação, experiência e posicionamento de marca."
   }
 ];
 
@@ -135,7 +149,7 @@ const CASES = [
     url: "https://www.instagram.com/flynitaviagens/",
     img: "img/case-flynita-viagens.jpg",
     segment: "Turismo · Viagens",
-    result: "Mais de 42 mil seguidores",
+    result: "Mais de 50 mil seguidores",
     work: ["Estratégia","Posicionamento","Produção audiovisual","Conteúdo de turismo"]
   },
   {
@@ -195,7 +209,9 @@ const CASES = [
   var vg = document.getElementById('vgrid');
   if (vg) vg.innerHTML = FEATURED_CONTENT.map(function (c, i) {
     var media = c.cover
-      ? '<img src="' + esc(c.cover) + '" alt="Capa do conteúdo ' + esc(c.title) + '" loading="lazy" decoding="async">'
+      ? '<img src="' + esc(c.cover) + '" alt="Capa do conteúdo ' + esc(c.title) + '" width="720" height="1280"' +
+        (c.coverPos ? ' style="object-position:center ' + esc(c.coverPos) + '"' : '') +
+        ' loading="lazy" decoding="async">'
       : '<div class="vcover" aria-hidden="true">' +
           '<span class="sym"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></span>' +
           '<div><div class="cat">' + esc(c.category) + '</div>' +
@@ -248,26 +264,42 @@ const CASES = [
   var mClose = document.getElementById('modal-close');
   var lastFocus = null, timer = null;
 
-  function clearEmbed() {
+  function clearMedia() {
     if (timer) { clearTimeout(timer); timer = null; }
+    var v = mBody.querySelector('video');
+    if (v) { v.pause(); v.removeAttribute('src'); v.load(); v.remove(); }  // libera o download em andamento
     var f = mBody.querySelector('iframe'); if (f) f.remove();
   }
   function fail() {
     mState.hidden = false;
-    mState.innerHTML = 'Não foi possível carregar a publicação aqui.<br>Use o botão abaixo para abrir no Instagram.';
+    mState.innerHTML = 'Não foi possível carregar o vídeo aqui.<br>Use o botão abaixo para abrir no Instagram.';
   }
-  function openModal(i) {
-    var c = FEATURED_CONTENT[i]; if (!c) return;
-    lastFocus = document.activeElement;
-    mCat.textContent = c.category + ' · ' + c.client;
-    mTitle.textContent = c.title;
-    mOpen.href = c.url;
-    clearEmbed();
-    mState.hidden = false;
-    mState.innerHTML = 'Carregando a publicação…';
-    modal.hidden = false; modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
 
+  /* Vídeo local (vds/): toca dentro do modal, com controles nativos. */
+  function playLocal(c) {
+    var v = document.createElement('video');
+    v.className = 'modal-video';
+    v.src = c.video;
+    v.controls = true;
+    v.playsInline = true;          // no iOS evita abrir o player em tela cheia
+    v.setAttribute('playsinline', '');
+    v.preload = 'metadata';
+    v.setAttribute('controlslist', 'nodownload');
+    v.setAttribute('aria-label', 'Vídeo: ' + c.title);
+    var ready = function () { mState.hidden = true; };
+    v.addEventListener('loadeddata', ready);
+    v.addEventListener('playing', ready);
+    // sem timeout aqui de propósito: <video> dispara 'error' de forma confiável, ao contrário do
+    // iframe. Um prazo fixo acusaria falha em vídeo grande numa conexão lenta que ainda ia carregar.
+    v.addEventListener('error', fail);
+    mBody.appendChild(v);
+    // o clique no card já é o gesto do usuário; se o navegador recusar, os controles seguem lá
+    var p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  /* Sem arquivo local, mantém o embed do Instagram. */
+  function playEmbed(c) {
     var f = document.createElement('iframe');
     f.src = c.url.replace(/\/?$/, '/') + 'embed/';
     f.title = 'Publicação: ' + c.title;
@@ -277,11 +309,26 @@ const CASES = [
     f.addEventListener('error', fail);
     mBody.appendChild(f);
     timer = setTimeout(function () { if (!mState.hidden) fail(); }, 6000);
+  }
+
+  function openModal(i) {
+    var c = FEATURED_CONTENT[i]; if (!c) return;
+    lastFocus = document.activeElement;
+    mCat.textContent = c.category + ' · ' + c.client;
+    mTitle.textContent = c.title;
+    mOpen.href = c.url;
+    clearMedia();
+    mState.hidden = false;
+    mState.innerHTML = c.video ? 'Carregando o vídeo…' : 'Carregando a publicação…';
+    modal.hidden = false; modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    if (c.video) playLocal(c); else playEmbed(c);
     mClose.focus();
   }
   function closeModal() {
     modal.classList.remove('open'); modal.hidden = true;
-    document.body.style.overflow = ''; clearEmbed();
+    document.body.style.overflow = ''; clearMedia();
     if (lastFocus) lastFocus.focus();
   }
   if (vg) vg.addEventListener('click', function (e) {
