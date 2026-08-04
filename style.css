@@ -213,7 +213,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   transition:transform .3s var(--ease),border-color .3s}
 .vcard:hover{transform:translateY(-3px);border-color:rgba(241,239,234,.3)}
 
-.vmedia{position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--black-soft);flex:0 0 auto}
+/* a miniatura flutua dentro do card, com o canto arredondado nos quatro lados */
+.vmedia{position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--black-soft);flex:0 0 auto;
+  margin:10px 10px 0;border-radius:10px}
 .vcard.is-featured .vmedia{aspect-ratio:16/10}
 /* as capas vêm dos reels (9:16) num card 16:11, então só ~39% da altura cabe.
    30% em vez do centro sobe a janela de corte para onde ficam rostos e legendas. */

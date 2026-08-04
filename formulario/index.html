@@ -120,7 +120,8 @@
       <input type="hidden" id="page_url" name="page_url"><input type="hidden" id="created_at" name="created_at">
       <input type="hidden" id="device" name="device"><input type="hidden" id="user_agent" name="user_agent">
       <input type="hidden" id="lang" name="lang"><input type="hidden" id="lead_id" name="lead_id">
-      <div class="hp" aria-hidden="true"><label for="website">Não preencha este campo</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <!-- honeypot: o nome _gotcha é a convenção do Formspree, que também o verifica no servidor -->
+      <div class="hp" aria-hidden="true"><label for="_gotcha">Não preencha este campo</label><input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
 
       <p class="js-steps-title">Perguntas</p>
 
@@ -209,7 +210,7 @@
         <div class="rev-list" id="reviewList" aria-live="polite"></div>
         <label class="consent" id="consent-privacy-box">
           <input type="checkbox" id="consent_privacy" name="consent_privacy">
-          <span>Autorizo a VZ Connect a utilizar os dados informados para analisar minha solicitação e entrar em contato comigo pelo WhatsApp, telefone ou e-mail. Li a <a id="privacyLink" target="_blank" rel="noopener">Política de Privacidade</a>. O consentimento de marketing é opcional e posso solicitar correção ou exclusão dos meus dados.</span>
+          <span>Autorizo a VZ Connect a utilizar os dados informados para analisar minha solicitação e entrar em contato comigo pelo WhatsApp, telefone ou e-mail. O consentimento de marketing é opcional e posso solicitar correção ou exclusão dos meus dados.</span>
         </label>
         <label class="consent">
           <input type="checkbox" id="consent_marketing" name="consent_marketing">
@@ -248,14 +249,11 @@
    Publicado em vzconnect.com.br/formulario · envio pelo Formspree.
 
    >>> PREENCHER ANTES DE PUBLICAR <<<
-   1. LEAD_ENDPOINT_URL  — em formspree.io, criar o formulário e copiar o
-                           endpoint que ele mostra (https://formspree.io/f/XXXXXXXX).
-   2. PRIVACY_POLICY_URL — URL real da Política de Privacidade. Enquanto
-                           estiver como __CONFIGURAR__ o envio fica bloqueado
-                           de propósito (consentimento LGPD).
+   LEAD_ENDPOINT_URL — em formspree.io, criar o formulário e copiar o
+                       endpoint que ele mostra (https://formspree.io/f/XXXXXXXX).
+                       É a única coisa que falta para o envio funcionar.
    ===================================================================== */
-const LEAD_ENDPOINT_URL = "__CONFIGURAR__";   // endpoint do Formspree: https://formspree.io/f/XXXXXXXX
-const PRIVACY_POLICY_URL = "__CONFIGURAR__";  // URL da Política de Privacidade
+const LEAD_ENDPOINT_URL = "https://formspree.io/f/mdajawjo";   // endpoint do Formspree: https://formspree.io/f/XXXXXXXX
 const WHATSAPP = "5527998431267";             // (27) 99843-1267
 
 const META_PIXEL_ID = "";          // ex: "1234567890" (deixe vazio até ter)
@@ -303,9 +301,6 @@ function labelFor(name,val){ if(!val) return ''; const el=document.querySelector
   $('#device').value=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?'mobile':'desktop';
   $('#created_at').value=new Date().toISOString();
   $('#lead_id').value=genId();
-  var okPriv=PRIVACY_POLICY_URL && PRIVACY_POLICY_URL.indexOf('__')<0;
-  if(okPriv){ $('#privacyLink').setAttribute('href', PRIVACY_POLICY_URL); }
-  else { $('#privacyLink').removeAttribute('href'); $('#privacyLink').setAttribute('aria-disabled','true'); console.warn('[VZ] PRIVACY_POLICY_URL não configurada — defina a URL real da Política de Privacidade.'); }
 })();
 function genId(){var d=new Date(),p=function(n){return String(n).padStart(2,'0');};
   var ymd=''+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate());
@@ -366,7 +361,7 @@ function validateStep(n){
     if(!ok) return err('Confira os campos destacados.'); }
   if(n===5){ var badM=$('#mensagem').value.trim().length<3; fieldErr('mensagem',badM);
     if(badM) return err('Conte brevemente o que sua empresa precisa.'); }
-  if(n===6){ if(!$('#consent_privacy').checked){$('#consent-privacy-box').classList.add('req-miss');return err('É necessário autorizar o contato e a Política de Privacidade para enviar.');}
+  if(n===6){ if(!$('#consent_privacy').checked){$('#consent-privacy-box').classList.add('req-miss');return err('É necessário autorizar o contato para enviar.');}
              $('#consent-privacy-box').classList.remove('req-miss'); }
   return true;
 }
@@ -417,15 +412,14 @@ function collect(){
     servico_procurado:sv, servico_label:SERVICE_LABEL[sv]||'', situacao_atual:situLabel,
     prazo:prazoLabel, decisor:DECISOR_LABEL[radioVal('decisor')]||'', mensagem:$('#mensagem').value.trim(),
     periodo_contato:PERIODO_LABEL[radioVal('periodo')]||'',
-    /* colunas legadas da planilha: sempre vazias no novo modelo */
-    investimento:'', investimento_gestao:'', investimento_site:'', recommendation:'', recommendation_reason:'',
     lead_score:sc.total, lead_classification:sc.cls,
     privacy_consent:'sim', marketing_consent:$('#consent_marketing').checked?'sim':'nao',
     utm_source:$('#utm_source').value, utm_medium:$('#utm_medium').value, utm_campaign:$('#utm_campaign').value,
     utm_content:$('#utm_content').value, utm_term:$('#utm_term').value, fbclid:$('#fbclid').value, gclid:$('#gclid').value,
     referrer:$('#referrer').value, page_url:$('#page_url').value, page_path:location.pathname, device:$('#device').value,
     user_agent:$('#user_agent').value, lang:$('#lang').value, submit_duration_seconds:Math.round((Date.now()-loadTs)/1000),
-    website:$('#website').value };
+    /* vai junto para o Formspree conferir do lado dele; campos com _ não viram coluna */
+    _gotcha:$('#_gotcha').value };
 }
 function waLink(p){
   var l=['Olá! Preenchi o formulário da VZ Connect.','','Nome: '+p.nome,'Empresa: '+p.empresa,'Protocolo: '+p.lead_id,
@@ -436,12 +430,11 @@ $('#leadForm').addEventListener('submit', function(e){
   e.preventDefault();
   if(sending) return;
   if(!validateStep(6)) return;
-  if($('#website').value){ return; }                                   // honeypot
-  if(!(PRIVACY_POLICY_URL && PRIVACY_POLICY_URL.indexOf('__')<0)){ return err('Envio indisponível: a Política de Privacidade ainda não foi configurada pelo responsável. Suas respostas foram mantidas.'); }
+  if($('#_gotcha').value){ return; }                                   // honeypot
   if(Date.now()-loadTs < 3000){ return err('Aguarde um instante e tente novamente.'); }
   if(submitAttempts>=MAX_ATTEMPTS){ return err('Muitas tentativas. Fale com a gente no WhatsApp — atendemos na hora.'); }
   if(!(LEAD_ENDPOINT_URL && LEAD_ENDPOINT_URL.indexOf('__')<0)){
-    console.error('[VZ] LEAD_ENDPOINT_URL não configurada — cole o endpoint do Formspree (https://formspree.io/f/mdajawjo).');
+    console.error('[VZ] LEAD_ENDPOINT_URL não configurada — cole o endpoint do Formspree (https://formspree.io/f/XXXXXX).');
     return err('Envio ainda não configurado. Fale com a gente no WhatsApp que atendemos na hora.');
   }
   var payload=collect();
