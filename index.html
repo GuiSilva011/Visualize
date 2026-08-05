@@ -1,433 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>VZ Connect | Gestão das Redes Sociais, Sites e Lojas Online</title>
-<meta name="description" content="VZ Connect: gestão das redes sociais, produção de conteúdo e desenvolvimento de Landing Pages, Sites Empresariais e Lojas Online. Vila Velha — ES, atendimento em todo o Brasil.">
-<meta name="theme-color" content="#08090A">
-<meta property="og:title" content="VZ Connect | Gestão das Redes Sociais, Sites e Lojas Online">
-<meta property="og:description" content="Gestão das redes sociais, produção de conteúdo e desenvolvimento de Landing Pages, Sites Empresariais e Lojas Online.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vzconnect.com.br">
-<meta property="og:locale" content="pt_BR">
-<link rel="icon" type="image/svg+xml" href="img/vz-symbol.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <title>VZ Connect — Digital media, conteúdo e sites</title>
+  <meta name="description" content="Estratégia, produção de conteúdo e desenvolvimento de sites para marcas que não querem parecer genéricas.">
+  <meta property="og:title" content="VZ Connect — Digital media, conteúdo e sites">
+  <meta property="og:description" content="Estratégia, conteúdo e tecnologia com uma direção visual própria.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="img/vz-symbol.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<a class="skip" href="#top">Ir para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="vzsym" viewBox="0 0 1123 652"><g transform="translate(0,652) scale(0.1,-0.1)" fill="currentColor"><path d="M7040 6477 c0 -2 141 -131 314 -287 173 -157 315 -287 315 -290 -1 -3 -29 -30 -63 -60 -34 -30 -779 -707 -1656 -1505 -877 -797 -1646 -1497 -1709 -1554 -64 -58 -339 -308 -611 -556 -272 -248 -747 -680 -1055 -960 l-560 -509 -3 1505 -2 1506 -329 149 -329 149 1082 3 1081 2 421 383 c231 210 468 425 525 477 57 52 295 268 528 480 l423 385 -1922 3 -1921 2 -765 -695 -764 -696 0 -2189 0 -2190 2055 0 2054 0 173 158 c96 86 396 360 668 607 272 248 621 565 775 705 272 246 3230 2937 4365 3970 305 277 671 610 813 739 141 128 257 237 257 240 0 31 -26 31 -2092 31 -1137 0 -2068 -1 -2068 -3z"/></g></symbol>
-  <symbol id="ic-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></g></symbol>
-  <symbol id="ic-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.25-1.5 1.5-1.5H16.6V4.4c-.3 0-1.2-.13-2.3-.13-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21z"/></symbol>
-  <symbol id="ic-li" viewBox="0 0 24 24"><g transform="translate(1.5,0) scale(0.046875)"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></g></symbol>
-  <symbol id="ic-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.21-3.66-.77-3.08-1.21-5.05-4.32-5.2-4.52-.15-.2-1.24-1.65-1.24-3.15 0-1.5.79-2.24 1.07-2.54.28-.31.61-.38.81-.38.2 0 .41 0 .58.01.19.01.43-.07.68.52.24.59.83 2.03.9 2.18.07.15.12.33.02.53-.1.2-.15.33-.29.5-.15.18-.31.39-.44.53-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.64-.08.17-.2.74-.86.94-1.16.2-.3.39-.25.66-.15.27.1 1.71.81 2 .96.3.15.49.22.56.34.07.13.07.73-.17 1.41z"/></symbol>
-  <symbol id="ic-arr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></g></symbol>
-</svg>
-
-<!-- ===== MENU ===== -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-brand" aria-label="VZ Connect — início">
-      <img src="img/vz-logo-horizontal-web.png" alt="VZ Connect" width="1340" height="238" decoding="async">
-    </a>
-    <div class="nav-center">
-      <a href="#servicos">Serviços</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#cases">Cases</a>
-      <a href="#processo">Processo</a>
-      <a href="#duvidas">Dúvidas</a>
-    </div>
-    <div class="nav-right">
-      <div class="nav-social" id="nav-social"></div>
-      <a class="nav-cta" data-lead data-cur="Comece aqui" href="formulario/" target="_blank" rel="noopener">
-        <span>Encontre a solução ideal</span><svg><use href="#ic-arr"/></svg>
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="VZ Connect — início">
+        <img src="img/vz-symbol.svg" alt="" aria-hidden="true">
+        <span>VZ CONNECT</span>
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="25" height="25"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
 
-<div class="menu" id="menu">
-  <a class="m-link" href="#servicos">Serviços</a>
-  <a class="m-link" href="#resultados">Resultados</a>
-  <a class="m-link" href="#cases">Cases</a>
-  <a class="m-link" href="#processo">Processo</a>
-  <a class="m-link" href="#duvidas">Dúvidas</a>
-  <a class="m-cta" data-lead href="formulario/" target="_blank" rel="noopener">Encontre a solução ideal</a>
-  <div class="menu-social" id="menu-social"></div>
-  <div class="menu-foot">
-    <span>(27) 99843-1267</span>
-    <span>Vila Velha · ES — atendimento em todo o Brasil</span>
-  </div>
-</div>
-
-<!-- ===== TELA 1 · HERO ===== -->
-<header class="hero theme-dark" id="top" data-dock="top">
-  <div class="wrap hero-inner">
-    <div>
-      <h1>Conecte sua marca <span class="soft">a quem realmente importa.</span></h1>
-      <p class="sub">Gestão das redes sociais, produção de conteúdo e desenvolvimento de sites para aproximar sua empresa do público, organizar sua comunicação e criar novos caminhos de contato.</p>
-      <p class="tag">Estratégia, conteúdo e tecnologia seguindo a mesma direção.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" data-lead data-cur="Comece aqui" href="formulario/" target="_blank" rel="noopener">
-          <span>Encontre a solução ideal</span><svg><use href="#ic-arr"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#servicos">
-          <span>Conheça nossos serviços</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-showcase" aria-hidden="true">
-      <div class="hero-showcase-site">
-        <img src="img/hero-site-preview.svg" alt="" width="900" height="560"
-             loading="eager" decoding="async" fetchpriority="high">
-      </div>
-      <span class="hero-showcase-link"></span>
-      <div class="hero-showcase-content">
-        <img src="img/hero-content-production.svg" alt="" width="620" height="900"
-             loading="eager" decoding="async" fetchpriority="high">
-      </div>
-      <span class="hero-showcase-label hero-showcase-label--content">Conteúdo</span>
-      <span class="hero-showcase-label hero-showcase-label--site">Sites</span>
-      <p class="hero-showcase-caption">Conteúdo que atrai.<br>Estrutura que conduz.</p>
-    </div>
-  </div>
-</header>
-
-<!-- ===== TELA 2 · SERVIÇOS ===== -->
-<section class="section theme-light" id="servicos" data-dock="gestao" aria-labelledby="ges-t">
-  <div class="wrap">
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ln"></span> Gestão das redes sociais</div>
-      <h2 class="s-title" id="ges-t">Gestão das redes sociais para diferentes momentos da empresa.</h2>
-      <p class="lead">Da construção de uma presença consistente a uma comunicação com mais estratégia, posicionamento e direção.</p>
-    </div>
-
-    <div class="split reveal">
-      <div>
-        <h3 class="line-name">Linha Start</h3>
-        <p class="line-tx">Para empresas que precisam começar, organizar a comunicação e manter uma presença profissional nas redes sociais.</p>
-        <div class="line-tags"><span>Constância</span><span>Produção de conteúdo</span><span>Organização</span><span>Presença profissional</span></div>
-        <a class="link-cta" data-wa="start" data-cur="Falar no WhatsApp" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-          Quero conhecer a Linha Start <svg><use href="#ic-arr"/></svg>
-        </a>
-      </div>
-      <div>
-        <h3 class="line-name">Linha Premium</h3>
-        <p class="line-tx">Para marcas que precisam de estratégia, posicionamento, direção criativa e acompanhamento mais próximo da comunicação.</p>
-        <div class="line-tags"><span>Estratégia</span><span>Posicionamento</span><span>Direção criativa</span><span>Acompanhamento</span></div>
-        <a class="link-cta" data-wa="premium" data-cur="Falar no WhatsApp" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-          Quero conhecer a Linha Premium <svg><use href="#ic-arr"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section theme-light tight-top" id="sites" data-dock="sites" aria-labelledby="sit-t">
-  <div class="wrap">
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ln"></span> Desenvolvimento de sites</div>
-      <h2 class="s-title" id="sit-t">Um site para cada objetivo da sua empresa.</h2>
-      <p class="lead">Criamos estruturas digitais que apresentam o negócio, organizam informações e conduzem o visitante para a próxima ação.</p>
-    </div>
-
-    <div class="sites-row reveal">
-      <div class="site-col">
-        <span class="site-num">01</span>
-        <h3>Landing Page</h3>
-        <p>Uma página criada para apresentar um serviço, uma campanha ou uma oferta e conduzir o visitante para uma ação específica.</p>
-        <a class="link-cta" data-wa="landingPage" data-cur="Falar no WhatsApp" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-          Quero saber mais sobre Landing Page <svg><use href="#ic-arr"/></svg>
-        </a>
-      </div>
-      <div class="site-col">
-        <span class="site-num">02</span>
-        <h3>Site Empresarial</h3>
-        <p>A presença oficial da empresa na internet, reunindo seus serviços, sua história, suas provas e seus canais de contato.</p>
-        <a class="link-cta" data-wa="businessSite" data-cur="Falar no WhatsApp" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-          Quero saber mais sobre Site Empresarial <svg><use href="#ic-arr"/></svg>
-        </a>
-      </div>
-      <div class="site-col">
-        <span class="site-num">03</span>
-        <h3>Loja Online</h3>
-        <p>Uma estrutura digital para apresentar produtos e criar uma jornada de compra organizada para o cliente.</p>
-        <a class="link-cta" data-wa="onlineStore" data-cur="Falar no WhatsApp" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-          Quero saber mais sobre Loja Online <svg><use href="#ic-arr"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="integrated reveal">
-      <div>
-        <span class="seal"><span class="dot"></span> Solução integrada</span>
-        <h3>Comunicação e site seguindo a mesma direção.</h3>
-      </div>
-      <p>A VZ Connect pode cuidar da presença da marca nas redes sociais e do ambiente digital que recebe o público, mantendo a mesma linguagem, estratégia e direção.</p>
-      <a class="link-cta" data-wa="integrated" data-cur="Falar no WhatsApp" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-        Quero uma solução integrada <svg><use href="#ic-arr"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TELA 3 · RESULTADOS, CONTEÚDOS E CASES ===== -->
-<section class="section theme-dark" id="resultados" data-dock="resultados" aria-labelledby="res-t">
-  <div class="wrap">
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ln"></span> Resultados</div>
-      <h2 class="s-title" id="res-t">Trabalho real, alcance real e resultados verificáveis.</h2>
-      <p class="lead">Conteúdos e projetos em que a VZ Connect participou da estratégia, produção, posicionamento ou presença digital.</p>
-    </div>
-
-    <div class="nums reveal" id="nums"></div>
-
-    <div class="vgrid reveal" id="vgrid"></div>
-
-    <div class="cases-strip" id="cases">
-      <div class="cases-lead reveal">
-        <div class="t">Perfis e marcas que contam ou contaram com a participação da VZ Connect.</div>
-        <div class="s">Toque em um card para abrir o Instagram.</div>
-      </div>
-      <div class="cgrid" id="cgrid"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TELA 4 · PROCESSO, DEPOIMENTOS E AUTORIDADE ===== -->
-<section class="section theme-light alt" id="processo" data-dock="processo" aria-labelledby="proc-t">
-  <div class="wrap">
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ln"></span> Processo</div>
-      <h2 class="s-title" id="proc-t">Você sabe o que acontece antes, durante e depois.</h2>
-      <p class="lead">Quatro etapas em cada frente. Em projetos de site, o <strong>preview visual é aprovado antes da implementação final</strong>.</p>
-    </div>
-    <div class="proc reveal">
-      <div class="proc-col">
-        <h3>Gestão das redes sociais</h3>
-        <ol class="steps">
-          <li><div class="sn">Entendimento do negócio</div><div class="sd">Conversa inicial sobre a empresa, o público e o momento atual.</div></li>
-          <li><div class="sn">Planejamento e produção</div><div class="sd">Direção definida e conteúdo produzido pela equipe.</div></li>
-          <li><div class="sn">Aprovação e publicação</div><div class="sd">Você aprova antes de o conteúdo ir ao ar.</div></li>
-          <li><div class="sn">Acompanhamento e ajustes</div><div class="sd">O que funcionou orienta o ciclo seguinte.</div></li>
-        </ol>
-      </div>
-      <div class="proc-col">
-        <h3>Desenvolvimento de sites</h3>
-        <ol class="steps">
-          <li><div class="sn">Entendimento do projeto</div><div class="sd">Objetivo do site, materiais e estrutura existente.</div></li>
-          <li><div class="sn">Organização e preview visual</div><div class="sd">Você vê o desenho das páginas antes do desenvolvimento.</div></li>
-          <li><div class="sn">Desenvolvimento e aprovação</div><div class="sd">Construção das páginas com rodadas de ajuste.</div></li>
-          <li><div class="sn">Testes e entrega</div><div class="sd">Verificação em diferentes telas e orientação de uso.</div></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section md theme-light alt tight-top" id="depoimentos" aria-labelledby="dep-t">
-  <div class="wrap">
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ln"></span> Depoimentos</div>
-      <h2 class="s-title" id="dep-t">Experiências que mostram como trabalhamos.</h2>
-      <p class="lead">Quem participa do processo percebe de perto o cuidado, a escuta e o envolvimento da VZ Connect em cada projeto.</p>
-    </div>
-
-    <div class="auth-deps reveal">
-      <div class="dep">
-        <span class="qm" aria-hidden="true">“</span>
-        <p class="dep-quote">A VZ não me entrega “só” marketing, mas sim TUDO o que sustenta o processo: dedicação, cuidado aos detalhes, escuta ativa, trabalho em equipe. A FLYNITA sem a VZ não existe. A Rafa e o Dani são a prova viva de como os mais velhos têm a aprender com os mais novos.</p>
-        <div class="dep-meta">
-          <div class="dep-av"><img src="img/dep-maria.jpg" alt="Maria Carolina, fundadora da Flynita Viagens" width="200" height="200" loading="lazy" decoding="async"></div>
-          <div><div class="dep-nm">Maria Carolina</div><div class="dep-rl">Fundadora · Flynita Viagens</div></div>
-        </div>
-      </div>
-      <div class="dep">
-        <span class="qm" aria-hidden="true">“</span>
-        <p class="dep-quote">Gosto de trabalhar com a Rafa e com o Dani porque eles viajam junto com as minhas ideias mirabolantes de conteúdo. São co-participativos, apresentam estratégias, trazem ideias novas. Eu recomendo demais.</p>
-        <div class="dep-meta">
-          <div class="dep-av"><img src="img/dep-gabriel.jpg" alt="Gabriel Zanette" width="200" height="200" loading="lazy" decoding="async"></div>
-          <div><div class="dep-nm">Gabriel Zanette</div><div class="dep-rl">CEO · Liberfly</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="founders-block reveal">
-      <div class="founders-head">
-        <div class="eyebrow"><span class="ln"></span> VZ Connect</div>
-        <h3 class="s-title">Quem está por trás da VZ Connect.</h3>
-        <p class="lead">Duas especialidades, uma mesma direção. Daniel e Rafaella participam da construção de cada projeto, conectando estratégia, criatividade, produção e tecnologia.</p>
-        <p class="founders-note">Cada cliente é acompanhado de forma próxima, com espaço para ideias, análise dos cenários e decisões construídas em conjunto.</p>
-      </div>
-
-      <div class="founders-grid">
-        <article class="founder-card">
-          <div class="founder-media">
-            <img src="img/daniel.jpg" alt="Daniel, sócio da VZ Connect" width="900" height="800" loading="lazy" decoding="async">
-          </div>
-          <div class="founder-content">
-            <h4 class="founder-name">Daniel</h4>
-            <p class="founder-role">Direção estratégica e tecnologia</p>
-            <p class="founder-text">Responsável por entender o momento de cada empresa, organizar a direção dos projetos e transformar necessidades em soluções práticas. Atua no planejamento, na estruturação dos sites e na integração entre estratégia, comunicação e tecnologia.</p>
-          </div>
-        </article>
-
-        <article class="founder-card founder-card--reverse">
-          <div class="founder-media">
-            <img src="img/rafaella.jpg" alt="Rafaella, sócia da VZ Connect" width="900" height="800" loading="lazy" decoding="async">
-          </div>
-          <div class="founder-content">
-            <h4 class="founder-name">Rafaella</h4>
-            <p class="founder-role">Direção criativa e produção</p>
-            <p class="founder-text">Responsável pela direção criativa e pela identidade dos conteúdos produzidos pela VZ Connect. Atua na construção das ideias, na produção audiovisual e na forma como cada marca se comunica com o público.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="section theme-light faq" id="duvidas" data-dock="duvidas" aria-labelledby="faq-t">
-  <div class="wrap">
-    <div class="head reveal">
-      <div class="eyebrow"><span class="ln"></span> Dúvidas</div>
-      <h2 class="s-title" id="faq-t">O essencial antes de começar.</h2>
-      <p class="lead">Respostas diretas para as dúvidas mais importantes.</p>
-    </div>
-
-    <div class="faq-grid reveal">
-      <div>
-        <details data-cur="Ver resposta"><summary>Quais serviços a VZ Connect oferece?</summary>
-          <p class="ans">Trabalhamos com gestão das redes sociais, produção de conteúdo, produção audiovisual, Landing Pages, Sites Empresariais e Lojas Online. Também podemos desenvolver uma solução integrada entre comunicação e site.</p></details>
-        <details data-cur="Ver resposta"><summary>Qual é a diferença entre a Linha Start e a Linha Premium?</summary>
-          <p class="ans">A Linha Start atende empresas que precisam começar ou organizar sua presença nas redes sociais. A Linha Premium é indicada para marcas que buscam uma atuação com mais estratégia, posicionamento, direção criativa e acompanhamento. Os detalhes de cada solução são apresentados na proposta.</p></details>
-        <details data-cur="Ver resposta"><summary>Qual é a diferença entre Landing Page, Site Empresarial e Loja Online?</summary>
-          <p class="ans">A Landing Page é criada para uma ação específica. O Site Empresarial reúne as principais informações e serviços da empresa. A Loja Online apresenta produtos e organiza a jornada de compra.</p></details>
-        <details data-cur="Ver resposta"><summary>Vocês atendem empresas de todo o Brasil?</summary>
-          <p class="ans">Sim. O atendimento, o planejamento e o acompanhamento podem acontecer de forma remota em todo o Brasil. Produções presenciais são avaliadas conforme a localização e as necessidades de cada projeto.</p></details>
-      </div>
-      <div>
-        <details data-cur="Ver resposta"><summary>Qual é o investimento inicial?</summary>
-          <p class="ans">A gestão das redes sociais possui opções a partir de <strong>R$ 700 por mês</strong>. Os projetos de site possuem opções a partir de <strong>R$ 1.200</strong>. O investimento final depende da solução, das necessidades da empresa e do escopo definido após o contato.</p></details>
-        <details data-cur="Ver resposta"><summary>Posso contratar a gestão das redes sociais e o site juntos?</summary>
-          <p class="ans">Sim. A VZ Connect pode organizar a comunicação da marca e o ambiente digital dentro da mesma direção. A solução é definida conforme as necessidades da empresa e formalizada em uma proposta personalizada.</p></details>
-        <details data-cur="Ver resposta"><summary>Como começo um projeto com a VZ Connect?</summary>
-          <p class="ans">Você pode preencher o formulário para receber uma orientação inicial ou falar diretamente pelo WhatsApp sobre o serviço que procura. Depois do contato, a equipe entende a necessidade e apresenta uma proposta personalizada.</p></details>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA FINAL ===== -->
-<section class="final theme-dark" id="contato">
-  <div class="final-sym" aria-hidden="true"><svg viewBox="0 0 1123 652"><use href="#vzsym"/></svg></div>
-  <div class="wrap reveal">
-    <h2>Conecte sua empresa ao próximo passo.</h2>
-    <p>Responda algumas perguntas sobre o seu negócio. A equipe analisa o cenário e apresenta o caminho mais adequado para a necessidade atual.</p>
-    <div class="final-actions">
-      <a class="btn btn-primary" data-lead data-cur="Comece aqui" href="formulario/" target="_blank" rel="noopener">
-        <span>Encontre a solução ideal</span><svg><use href="#ic-arr"/></svg>
-      </a>
-      <a class="btn btn-ghost" data-wa="general" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">
-        <span>Falar pelo WhatsApp</span><svg><use href="#ic-wa"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== RODAPÉ ===== -->
-<footer class="theme-dark">
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <img src="img/vz-logo-horizontal-web.png" alt="VZ Connect" width="1340" height="238" loading="lazy" decoding="async">
-        <p>Gestão das redes sociais, produção de conteúdo e desenvolvimento de Landing Pages, Sites Empresariais e Lojas Online.</p>
-        <div class="loc">Atendimento remoto em todo o Brasil · produção presencial na Grande Vitória</div>
-      </div>
-      <div class="foot-col">
-        <h4>Navegação</h4>
+      <div class="nav__links" id="nav-links">
         <a href="#servicos">Serviços</a>
-        <a href="#resultados">Resultados</a>
-        <a href="#cases">Cases</a>
-        <a href="#processo">Processo</a>
-        <a href="#duvidas">Dúvidas</a>
+        <a href="#sites">Sites</a>
+        <a href="#conteudos">Conteúdo</a>
+        <a href="#sobre">Sobre</a>
       </div>
-      <div class="foot-col">
-        <h4>Contato</h4>
-        <a data-wa="general" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer">(27) 99843-1267</a>
-        <a href="mailto:contato@vzconnect.com.br">contato@vzconnect.com.br</a>
-        <a data-lead href="formulario/" target="_blank" rel="noopener">Encontre a solução ideal</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <div>
-        <div class="cp">© 2026 VZ Connect. Todos os direitos reservados.</div>
-        <div class="cnpj">CNPJ 64.376.461/0001-46 · Vila Velha — ES</div>
-      </div>
-      <div class="foot-social" id="foot-social"></div>
-    </div>
-  </div>
-</footer>
 
-<!-- CTA persistente -->
-<div class="dock" id="dock">
-  <span class="ph" id="dock-phrase">Conecte sua marca</span>
-  <a class="go" id="dock-go" href="formulario/" target="_blank" rel="noopener">
-    <span id="dock-label">Encontrar solução</span><svg><use href="#ic-arr"/></svg>
-  </a>
-  <a class="wa" data-wa="general" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
-    <svg><use href="#ic-wa"/></svg>
-  </a>
-</div>
+      <a class="button button--dark nav__cta" href="formulario/" target="_blank" rel="noopener">
+        Começar projeto <span aria-hidden="true">↗</span>
+      </a>
 
-<!-- barra mobile -->
-<div class="mbar" id="mbar">
-  <a class="b-main" id="mbar-go" href="formulario/" target="_blank" rel="noopener">
-    <span id="mbar-label">Encontre a solução ideal</span><svg width="15" height="15"><use href="#ic-arr"/></svg>
-  </a>
-  <a class="b-wa" data-wa="general" href="https://wa.me/5527998431267" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
-    <svg><use href="#ic-wa"/></svg>
-  </a>
-</div>
-
-<div class="cur" id="cur" aria-hidden="true"></div>
-
-<!-- modal -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-  <div class="modal-box" role="document">
-    <div class="modal-head">
-      <div>
-        <div class="c" id="modal-cat"></div>
-        <div class="t" id="modal-title"></div>
-      </div>
-      <button class="modal-close" id="modal-close" aria-label="Fechar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <button class="nav__toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
       </button>
     </div>
-    <div class="modal-body" id="modal-body">
-      <div class="modal-state" id="modal-state">Carregando a publicação…</div>
+  </nav>
+
+  <main id="conteudo">
+    <header class="hero" id="top">
+      <div class="hero__wash" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="shell hero__inner">
+        <div class="hero__kicker reveal">Digital media studio · Vila Velha / Brasil</div>
+        <h1 class="hero__title reveal">
+          Sua marca não precisa<br>
+          <em>parecer com todas.</em>
+        </h1>
+        <p class="hero__intro reveal">Estratégia, conteúdo e desenvolvimento de sites com uma direção visual própria — sem fórmulas prontas, sem estética genérica.</p>
+
+        <div class="hero__scene reveal" aria-label="Composição com um site exibido em um desktop e conteúdo para celular">
+          <div class="hero__word" aria-hidden="true">CONNECT</div>
+
+          <div class="desktop">
+            <div class="desktop__camera"></div>
+            <div class="desktop__screen">
+              <div class="mini-site mini-site--travel">
+                <div class="mini-site__nav">
+                  <strong>flynita.</strong>
+                  <span>destinos&nbsp;&nbsp; experiências&nbsp;&nbsp; sobre</span>
+                  <b>planeje sua viagem</b>
+                </div>
+                <div class="mini-site__body">
+                  <div class="mini-site__copy">
+                    <small>VIAGENS COM CURADORIA</small>
+                    <h2>O mundo fica maior quando a viagem tem propósito.</h2>
+                    <p>Roteiros autorais, atendimento próximo e experiências que começam antes do embarque.</p>
+                    <button type="button" tabindex="-1">Descobrir destinos ↗</button>
+                  </div>
+                  <div class="mini-site__portrait">
+                    <img src="img/capa-flynita-pickpockets.jpg" alt="" aria-hidden="true">
+                    <span>EUROPA<br>2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="desktop__chin">
+              <img src="img/vz-symbol.svg" alt="" aria-hidden="true">
+            </div>
+            <div class="desktop__stand"></div>
+            <div class="desktop__base"></div>
+          </div>
+
+          <div class="phone">
+            <div class="phone__speaker"></div>
+            <img src="img/capa-gabriel-onibus.jpg" alt="Frame de conteúdo vertical produzido para Gabriel Zanette">
+            <div class="phone__hud">
+              <span>Conteúdo orgânico</span>
+              <strong>10,5 mi</strong>
+              <small>visualizações</small>
+            </div>
+          </div>
+
+          <span class="scene-tag scene-tag--sites">Sites</span>
+          <span class="scene-tag scene-tag--content">Conteúdo</span>
+          <span class="scene-note">Uma direção.<br>Duas frentes.</span>
+        </div>
+
+        <div class="hero__bottom reveal">
+          <a class="round-link" href="#servicos" aria-label="Conhecer os serviços"><span>↓</span></a>
+          <p>Construímos presença digital para marcas que querem ser reconhecidas antes mesmo de serem explicadas.</p>
+          <div class="hero__proof"><strong>+100 mi</strong><span>de visualizações<br>em conteúdos produzidos</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="ticker" aria-label="Áreas de atuação">
+      <div class="ticker__track">
+        <span>ESTRATÉGIA</span><i>✦</i><span>CONTEÚDO</span><i>✦</i><span>SITES</span><i>✦</i><span>PRODUÇÃO</span><i>✦</i><span>POSICIONAMENTO</span><i>✦</i>
+        <span>ESTRATÉGIA</span><i>✦</i><span>CONTEÚDO</span><i>✦</i><span>SITES</span><i>✦</i><span>PRODUÇÃO</span><i>✦</i><span>POSICIONAMENTO</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="manifesto section" id="servicos">
+      <div class="shell">
+        <div class="section-label reveal"><span>01</span> O que fazemos</div>
+        <div class="manifesto__grid">
+          <h2 class="display reveal">Não é só postar.<br>Não é só programar.<br><em>É construir percepção.</em></h2>
+          <div class="manifesto__copy reveal">
+            <p class="lead">A VZ conecta comunicação, direção criativa e tecnologia para a marca funcionar como um sistema — não como peças soltas.</p>
+            <p>O conteúdo chama atenção. O posicionamento cria sentido. O site organiza a decisão. Quando essas frentes conversam, a marca deixa de parecer improvisada.</p>
+          </div>
+        </div>
+
+        <div class="services reveal">
+          <article class="service service--coral">
+            <span class="service__number">01</span>
+            <div>
+              <h3>Gestão das redes</h3>
+              <p>Planejamento, direção criativa, calendário, produção e acompanhamento para marcas em diferentes momentos.</p>
+            </div>
+            <ul>
+              <li>Linha Start</li>
+              <li>Linha Premium</li>
+              <li>Posicionamento</li>
+            </ul>
+            <a href="https://wa.me/5527998431267?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20gest%C3%A3o%20de%20redes%20sociais." target="_blank" rel="noopener">Conversar sobre gestão ↗</a>
+          </article>
+
+          <article class="service service--blue">
+            <span class="service__number">02</span>
+            <div>
+              <h3>Conteúdo e produção</h3>
+              <p>Ideias que cabem na linguagem da marca e ganham forma em vídeos, campanhas, roteiros e peças digitais.</p>
+            </div>
+            <ul>
+              <li>Produção audiovisual</li>
+              <li>Roteiro e direção</li>
+              <li>Conteúdo orgânico</li>
+            </ul>
+            <a href="#conteudos">Ver conteúdos ↗</a>
+          </article>
+
+          <article class="service service--ink">
+            <span class="service__number">03</span>
+            <div>
+              <h3>Sites e experiências</h3>
+              <p>Landing pages, sites empresariais e lojas online construídos para apresentar, conduzir e converter.</p>
+            </div>
+            <ul>
+              <li>Landing pages</li>
+              <li>Sites empresariais</li>
+              <li>Lojas online</li>
+            </ul>
+            <a href="#sites">Ver projetos de site ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="web-projects section section--dark" id="sites">
+      <div class="shell">
+        <div class="section-label section-label--light reveal"><span>02</span> Desenvolvimento de sites</div>
+        <div class="web-projects__head">
+          <h2 class="display display--light reveal">Sites que parecem<br><em>da marca — não do template.</em></h2>
+          <p class="lead lead--light reveal">Antes de desenvolver, organizamos narrativa, hierarquia e direção visual. Você aprova o preview e só então o projeto vai para implementação.</p>
+        </div>
+
+        <div class="project-lab reveal">
+          <div class="project-lab__meta">
+            <span class="project-lab__counter">Projeto <b id="project-count">01</b> / 03</span>
+            <h3 id="project-title">Flynita Viagens</h3>
+            <p id="project-description">Site de turismo com linguagem editorial, jornadas organizadas e foco em atendimento personalizado.</p>
+            <div class="project-lab__tags" id="project-tags">
+              <span>Direção visual</span><span>UX</span><span>Desenvolvimento</span>
+            </div>
+            <div class="project-lab__controls" aria-label="Selecionar projeto">
+              <button class="project-dot is-active" type="button" data-project="0" aria-label="Projeto Flynita Viagens">01</button>
+              <button class="project-dot" type="button" data-project="1" aria-label="Projeto Juliana Ferrari">02</button>
+              <button class="project-dot" type="button" data-project="2" aria-label="Projeto Gabriel Zanette">03</button>
+            </div>
+          </div>
+
+          <div class="workstation">
+            <div class="workstation__glow"></div>
+            <div class="monitor">
+              <div class="monitor__cam"></div>
+              <div class="monitor__screen">
+                <div class="project-screen project-screen--travel is-active" data-screen="0">
+                  <div class="ps-nav"><strong>flynita.</strong><span>Destinos &nbsp; Grupos &nbsp; Sobre</span><b>Fale com a gente</b></div>
+                  <div class="ps-grid">
+                    <div class="ps-copy"><small>EXPERIÊNCIAS EM GRUPO</small><h4>Viajar muda o lugar.<br>Algumas viagens<br>mudam você.</h4><p>Roteiros especiais para conhecer o mundo com segurança, cuidado e companhia.</p><i>Explorar roteiros ↗</i></div>
+                    <div class="ps-photo"><img src="img/capa-flynita-pickpockets.jpg" alt="Mockup do projeto Flynita Viagens"><span>PARIS<br>ROMA<br>LONDRES</span></div>
+                  </div>
+                </div>
+
+                <div class="project-screen project-screen--legal" data-screen="1">
+                  <div class="ps-nav"><strong>JULIANA FERRARI</strong><span>Atuação &nbsp; Conteúdos &nbsp; Contato</span><b>Falar com a equipe</b></div>
+                  <div class="ps-grid">
+                    <div class="ps-copy"><small>DIREITO DO PASSAGEIRO</small><h4>Informação clara<br>para quem precisa<br>seguir viagem.</h4><p>Orientação jurídica acessível, conteúdo prático e atendimento humanizado.</p><i>Conheça seus direitos ↗</i></div>
+                    <div class="ps-photo"><img src="img/case-juliana-ferrari.jpg" alt="Mockup do projeto Juliana Ferrari"><span>VOO<br>ATRASADO?</span></div>
+                  </div>
+                </div>
+
+                <div class="project-screen project-screen--creator" data-screen="2">
+                  <div class="ps-nav"><strong>GABRIEL ZANETTE</strong><span>Direitos &nbsp; Viagens &nbsp; Projetos</span><b>Entre em contato</b></div>
+                  <div class="ps-grid">
+                    <div class="ps-copy"><small>CONTEÚDO QUE ORIENTA</small><h4>Viajar bem também<br>é saber os seus<br>direitos.</h4><p>Uma plataforma para organizar autoridade, conteúdos e oportunidades de parceria.</p><i>Ver conteúdos ↗</i></div>
+                    <div class="ps-photo"><img src="img/case-gabriel-zanette.jpg" alt="Mockup do projeto Gabriel Zanette"><span>1,1 MI<br>SEGUIDORES</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="monitor__chin"><img src="img/vz-symbol.svg" alt="" aria-hidden="true"></div>
+              <div class="monitor__stand"></div>
+              <div class="monitor__base"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-types reveal">
+          <article><span>01</span><h3>Landing page</h3><p>Uma página com foco claro, narrativa objetiva e uma ação principal.</p></article>
+          <article><span>02</span><h3>Site empresarial</h3><p>A presença oficial da empresa, com serviços, história, provas e contato.</p></article>
+          <article><span>03</span><h3>Loja online</h3><p>Produtos, categorias e jornada de compra organizados para reduzir atrito.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-work section" id="conteudos">
+      <div class="shell">
+        <div class="section-label reveal"><span>03</span> Conteúdo e resultados</div>
+        <div class="content-work__head">
+          <h2 class="display reveal">Conteúdo que faz<br>as pessoas <em>pararem.</em></h2>
+          <div class="content-work__note reveal"><strong>+3 mil</strong><span>vídeos produzidos<br>em mais de 20 nichos</span></div>
+        </div>
+
+        <div class="reel-wall reveal">
+          <button class="reel-card reel-card--large" type="button" data-video="vds/video5.mp4" data-title="Gabriel Zanette — 10,5 milhões de visualizações">
+            <img src="img/capa-gabriel-onibus.jpg" alt="Conteúdo produzido para Gabriel Zanette">
+            <span class="reel-card__tag">Conteúdo orgânico</span>
+            <div class="reel-card__info"><strong>10,5 milhões</strong><span>de visualizações</span></div>
+            <i>▶</i>
+          </button>
+
+          <button class="reel-card reel-card--tilt-left" type="button" data-video="vds/video4.mp4" data-title="Cerimonial Nona Lú — 2,2 milhões de visualizações">
+            <img src="img/capa-nonalu-madrinhas.jpg" alt="Conteúdo produzido para Cerimonial Nona Lú">
+            <span class="reel-card__tag">Entretenimento</span>
+            <div class="reel-card__info"><strong>2,2 milhões</strong><span>de visualizações</span></div>
+            <i>▶</i>
+          </button>
+
+          <button class="reel-card reel-card--tilt-right" type="button" data-video="vds/video2.mp4" data-title="Juliana Ferrari — conteúdo jurídico">
+            <img src="img/capa-juliana-mala.jpg" alt="Conteúdo produzido para Juliana Ferrari">
+            <span class="reel-card__tag">Conteúdo jurídico</span>
+            <div class="reel-card__info"><strong>71,6 mil</strong><span>curtidas</span></div>
+            <i>▶</i>
+          </button>
+
+          <button class="reel-card reel-card--small" type="button" data-video="vds/video3.mp4" data-title="Flynita Viagens — conteúdo educativo">
+            <img src="img/capa-flynita-pickpockets.jpg" alt="Conteúdo produzido para Flynita Viagens">
+            <span class="reel-card__tag">Conteúdo educativo</span>
+            <div class="reel-card__info"><strong>+2 mil</strong><span>novos seguidores</span></div>
+            <i>▶</i>
+          </button>
+        </div>
+
+        <div class="metrics reveal">
+          <div><strong>+100 mi</strong><span>visualizações em conteúdos produzidos</span></div>
+          <div><strong>+50</strong><span>marcas atendidas</span></div>
+          <div><strong>+20</strong><span>nichos de mercado</span></div>
+          <a href="https://www.instagram.com/vz.connect/" target="_blank" rel="noopener">Ver mais no Instagram ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section section--blue" id="processo">
+      <div class="shell">
+        <div class="section-label section-label--light reveal"><span>04</span> Processo</div>
+        <div class="process__grid">
+          <h2 class="display display--light reveal">Sem caixa-preta.<br><em>Você participa.</em></h2>
+          <p class="lead lead--light reveal">Do primeiro alinhamento à entrega, cada decisão tem contexto, preview e espaço para aprovação.</p>
+        </div>
+        <ol class="process__steps reveal">
+          <li><span>01</span><h3>Diagnóstico</h3><p>Entendemos o negócio, o público, o momento e o objetivo real do projeto.</p></li>
+          <li><span>02</span><h3>Direção</h3><p>Definimos narrativa, referências, linguagem visual e caminho de execução.</p></li>
+          <li><span>03</span><h3>Criação</h3><p>Produzimos o conteúdo ou o preview do site com rodadas de aprovação.</p></li>
+          <li><span>04</span><h3>Entrega e evolução</h3><p>Publicamos, testamos, acompanhamos e ajustamos a partir do que acontece.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="about section" id="sobre">
+      <div class="shell">
+        <div class="section-label reveal"><span>05</span> Quem faz</div>
+        <div class="about__intro">
+          <h2 class="display reveal">Duas especialidades.<br><em>Uma mesma direção.</em></h2>
+          <p class="lead reveal">Daniel e Rafaella participam da construção de cada projeto, conectando estratégia, criatividade, produção e tecnologia.</p>
+        </div>
+
+        <div class="founders reveal">
+          <article class="founder founder--daniel">
+            <div class="founder__photo"><img src="img/daniel.jpg" alt="Daniel, responsável por estratégia e tecnologia na VZ Connect"></div>
+            <div class="founder__body"><span>Estratégia + tecnologia</span><h3>Daniel</h3><p>Organiza a direção dos projetos e transforma necessidades em soluções práticas, da estrutura do site à integração entre comunicação e tecnologia.</p></div>
+          </article>
+          <article class="founder founder--rafaella">
+            <div class="founder__photo"><img src="img/rafaella.jpg" alt="Rafaella, responsável pela direção criativa e produção na VZ Connect"></div>
+            <div class="founder__body"><span>Direção criativa + produção</span><h3>Rafaella</h3><p>Conduz a identidade dos conteúdos, a construção das ideias e a forma como cada marca se apresenta e conversa com o público.</p></div>
+          </article>
+        </div>
+
+        <div class="testimonials reveal">
+          <article>
+            <span class="quote-mark">“</span>
+            <blockquote>A VZ não me entrega “só” marketing, mas tudo o que sustenta o processo: dedicação, cuidado aos detalhes, escuta ativa e trabalho em equipe.</blockquote>
+            <footer><img src="img/dep-maria.jpg" alt="Maria Carolina"><div><strong>Maria Carolina</strong><span>Fundadora · Flynita Viagens</span></div></footer>
+          </article>
+          <article>
+            <span class="quote-mark">“</span>
+            <blockquote>Eles viajam junto com as minhas ideias, são co-participativos, apresentam estratégias e trazem ideias novas. Eu recomendo demais.</blockquote>
+            <footer><img src="img/dep-gabriel.jpg" alt="Gabriel Zanette"><div><strong>Gabriel Zanette</strong><span>CEO · Liberfly</span></div></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section" id="duvidas">
+      <div class="shell faq__grid">
+        <div>
+          <div class="section-label reveal"><span>06</span> Dúvidas</div>
+          <h2 class="display reveal">O essencial<br><em>antes de começar.</em></h2>
+          <p class="lead reveal">O restante a gente resolve conversando.</p>
+        </div>
+        <div class="faq__list reveal">
+          <details>
+            <summary>Quais serviços a VZ Connect oferece?<span>+</span></summary>
+            <p>Gestão de redes sociais, produção de conteúdo, produção audiovisual, landing pages, sites empresariais e lojas online. Também estruturamos projetos integrados.</p>
+          </details>
+          <details>
+            <summary>Qual é o investimento inicial?<span>+</span></summary>
+            <p>A gestão de redes possui opções a partir de R$ 700 por mês. Projetos de site possuem opções a partir de R$ 1.200. O valor final depende do escopo.</p>
+          </details>
+          <details>
+            <summary>Vocês atendem todo o Brasil?<span>+</span></summary>
+            <p>Sim. Estratégia, acompanhamento e desenvolvimento podem acontecer remotamente. Produções presenciais são avaliadas conforme localização e necessidade.</p>
+          </details>
+          <details>
+            <summary>Como funciona a aprovação do site?<span>+</span></summary>
+            <p>Primeiro montamos a direção e o preview visual. Depois da sua aprovação, seguimos para o desenvolvimento, testes e entrega.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="shell final-cta__inner reveal">
+        <span>VZ CONNECT · DIGITAL MEDIA STUDIO</span>
+        <h2>Vamos fazer sua marca<br><em>parecer com ela mesma?</em></h2>
+        <div>
+          <p>Conte o que você precisa. A gente organiza o caminho.</p>
+          <a class="button button--light" href="formulario/" target="_blank" rel="noopener">Começar um projeto <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--light" href="#top"><img src="img/vz-symbol.svg" alt="" aria-hidden="true"><span>VZ CONNECT</span></a>
+        <p>Estratégia, conteúdo e tecnologia seguindo a mesma direção.</p>
+      </div>
+      <div><span class="footer__label">Contato</span><a href="mailto:contato@vzconnect.com.br">contato@vzconnect.com.br</a><a href="https://wa.me/5527998431267" target="_blank" rel="noopener">(27) 99843-1267</a></div>
+      <div><span class="footer__label">Social</span><a href="https://www.instagram.com/vz.connect/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/vz-connect/about/?viewAsMember=true" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div><span class="footer__label">Local</span><p>Vila Velha · ES<br>Atendimento em todo o Brasil</p></div>
     </div>
-    <div class="modal-foot">
-      <a class="btn btn-ghost" id="modal-open" href="https://www.instagram.com/vz.connect/" target="_blank" rel="noopener noreferrer">
-        <span>Abrir no Instagram</span><svg><use href="#ic-arr"/></svg>
-      </a>
+    <div class="shell footer__bottom"><span>© 2026 VZ Connect</span><span>CNPJ 64.376.461/0001-46</span><a href="#top">Voltar ao topo ↑</a></div>
+  </footer>
+
+  <div class="video-modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="video-title">
+    <button class="video-modal__backdrop" type="button" data-close aria-label="Fechar vídeo"></button>
+    <div class="video-modal__panel">
+      <div class="video-modal__top"><h2 id="video-title">Conteúdo VZ Connect</h2><button type="button" data-close aria-label="Fechar">×</button></div>
+      <video id="modal-video" controls playsinline></video>
     </div>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
